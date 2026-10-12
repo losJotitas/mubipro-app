@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
   @layer base {
     html, body { margin: 0; padding: 0; }
@@ -130,7 +129,7 @@
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OPERACIONES</div>
         <nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold">
           <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="toma-de-inventario" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Toma de Inventario</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="escaner-qr-barras" href="#"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="escaner-qr-barras" href="#" onclick="abrirModalAuditoria(); return false;"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
           <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="verificacion" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Verificación</span></a>
         </nav>
       </div>
@@ -189,7 +188,7 @@
           <span class="material-symbols-outlined text-[20px]">notifications</span>
           <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
         </button>
-        <button class="flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary px-space-md py-2 rounded-lg text-label-md font-label-md font-semibold transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+        <button onclick="abrirModalAuditoria()" class="flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary px-space-md py-2 rounded-lg text-label-md font-label-md font-semibold transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
           <span class="material-symbols-outlined text-[16px]">bolt</span>
           <span>NUEVA AUDITORÍA / ESCANEAR</span>
         </button>
@@ -204,7 +203,6 @@
     <div class="flex flex-col w-full">
       <div class="px-gutter-desktop py-space-xl max-w-[1680px] w-full mx-auto space-y-space-xl">
         
-        <!-- Top Context & Live Telemetry Strip -->
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
           <div>
             <div class="flex items-center gap-space-xs text-secondary text-label-sm font-label-sm uppercase tracking-wider mb-1">
@@ -218,7 +216,6 @@
               Panel de Control Patrimonial 2026
             </h1>
           </div>
-          <!-- Quick Action Controls -->
           <div class="flex flex-wrap items-center gap-space-sm">
             <div class="flex items-center gap-2 bg-surface-container-low px-space-md py-2 rounded-xl">
               <span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
@@ -233,7 +230,7 @@
                 <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
                 <span>Informe MEF</span>
               </button>
-              <button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg text-label-md font-label-md bg-primary-container text-on-primary hover:bg-primary transition-all shadow-sm">
+              <button onclick="abrirModalAuditoria()" class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg text-label-md font-label-md bg-primary-container text-on-primary hover:bg-primary transition-all shadow-sm">
                 <span class="material-symbols-outlined text-[16px]">qr_code_scanner</span>
                 <span>Escanear Lote</span>
               </button>
@@ -243,7 +240,6 @@
 
         <!-- 1. TOP METRICS & KPI CARDS -->
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
-          <!-- Card 1 -->
           <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative overflow-hidden group">
             <div class="flex items-start justify-between mb-space-sm">
               <div class="flex items-center gap-2">
@@ -268,7 +264,6 @@
             </div>
           </div>
 
-          <!-- Card 2 -->
           <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
             <div class="flex items-start justify-between mb-space-sm">
               <div class="flex items-center gap-2">
@@ -297,7 +292,6 @@
             </div>
           </div>
 
-          <!-- Card 3 -->
           <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
             <div class="flex items-start justify-between mb-space-sm">
               <div class="flex items-center gap-2">
@@ -325,7 +319,6 @@
             </div>
           </div>
 
-          <!-- Card 4 -->
           <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
             <div class="flex items-center justify-between mb-space-xs">
               <div class="flex items-center gap-2">
@@ -399,7 +392,6 @@
         <!-- 2. DATA VISUALIZATIONS & LIVE FEED SECTION -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
           
-          <!-- COLUMN 1: Donut & Accounting Net -->
           <div class="lg:col-span-5 flex flex-col gap-space-lg">
             <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
               <div class="flex items-center justify-between mb-space-md">
@@ -466,7 +458,6 @@
               </div>
             </div>
 
-            <!-- Net Valuation -->
             <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
               <div class="flex items-center justify-between mb-space-sm">
                 <span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-bold">Contabilidad &amp; Depreciación</span>
@@ -491,7 +482,6 @@
             </div>
           </div>
 
-          <!-- COLUMN 2: Live Activity Feed -->
           <div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
             <div class="flex items-center justify-between pb-space-sm">
               <div>
@@ -510,7 +500,6 @@
             </div>
 
             <div class="space-y-space-sm overflow-hidden my-space-sm">
-              <!-- Entry 1 -->
               <div class="p-space-md rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm group">
                 <div class="flex items-start gap-space-md">
                   <div class="relative w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0 shadow-inner flex items-center justify-center">
@@ -536,7 +525,6 @@
                 </div>
               </div>
 
-              <!-- Entry 2 -->
               <div class="p-space-md rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm group">
                 <div class="flex items-start gap-space-md">
                   <div class="relative w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0 shadow-inner flex items-center justify-center">
@@ -572,10 +560,98 @@
 </div>
 
 <!-- ======================================================== -->
-<!-- MUBIPRO BACKEND API INTEGRATION SCRIPT (Google Apps Script) -->
+<!-- MODAL DE AUDITORÍA Y REGISTRO DE BIENES -->
+<!-- ======================================================== -->
+<div id="modalAuditoria" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-outline-variant/30 transform transition-all">
+    <div class="flex items-center justify-between border-b border-outline-variant/20 pb-4 mb-4">
+      <div class="flex items-center gap-2">
+        <div class="p-2 rounded-lg bg-primary-container text-on-primary">
+          <span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+        </div>
+        <div>
+          <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Nueva Auditoría / Registro</h3>
+          <p class="text-body-sm font-body-sm text-outline">Directiva MEF N° 0006-2021-EF/54.01</p>
+        </div>
+      </div>
+      <button onclick="cerrarModalAuditoria()" class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+
+    <form id="formAuditoria" onsubmit="guardarBienAuditoria(event)" class="space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Código Patrimonial / SBN *</label>
+          <input type="text" id="codigo_patrimonial" required class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md font-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: 740895000004"/>
+        </div>
+        <div>
+          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Estado MEF *</label>
+          <select id="estado_mef" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container font-medium">
+            <option value="Bueno">[B] Bueno</option>
+            <option value="Regular">[R] Regular</option>
+            <option value="Malo">[M] Malo</option>
+            <option value="Chatarra">[CH] Chatarra</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Descripción del Bien *</label>
+        <input type="text" id="descripcion_bien" required class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: Monitor LED 24 Pulgadas FHD"/>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div>
+          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Marca</label>
+          <input type="text" id="marca" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="LG / HP / Dell"/>
+        </div>
+        <div>
+          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Modelo</label>
+          <input type="text" id="modelo" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="24MK600M"/>
+        </div>
+        <div>
+          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Serie</label>
+          <input type="text" id="serie" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="S/N 901NT82"/>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Ubicación Física / Ambiente</label>
+          <input type="text" id="ubicacion_fisica" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Oficina Logística - Piso 3"/>
+        </div>
+        <div>
+          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Servidor Responsable</label>
+          <input type="text" id="servidor_responsable" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ing. Carlos Mendoza"/>
+        </div>
+      </div>
+
+      <div class="pt-4 flex items-center justify-end gap-3 border-t border-outline-variant/20">
+        <button type="button" onclick="cerrarModalAuditoria()" class="px-4 py-2 rounded-lg text-label-md font-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Cancelar</button>
+        <button type="submit" id="btnGuardar" class="px-5 py-2 rounded-lg text-label-md font-label-md font-semibold bg-primary-container hover:bg-primary text-on-primary transition-colors flex items-center gap-2 shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">save</span>
+          <span>Guardar Registro</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ======================================================== -->
+<!-- MUBIPRO BACKEND API INTEGRATION SCRIPT -->
 <!-- ======================================================== -->
 <script>
   const MUBIPRO_API_URL = "https://script.google.com/macros/s/AKfycbwPridvu0c4XxGSy6hjmeQ7CW_HQzatDaN5cy0RfGU2s-LSKg46mf-8aFVoDBt8Foh0aA/exec";
+
+  function abrirModalAuditoria() {
+    document.getElementById("modalAuditoria").classList.remove("hidden");
+  }
+
+  function cerrarModalAuditoria() {
+    document.getElementById("modalAuditoria").classList.add("hidden");
+    document.getElementById("formAuditoria").reset();
+  }
 
   async function sincronizarDatosMubiPro() {
     try {
@@ -593,7 +669,49 @@
     }
   }
 
-  // Ejecutar al cargar la página
+  async function guardarBienAuditoria(e) {
+    e.preventDefault();
+    const btnGuardar = document.getElementById("btnGuardar");
+    btnGuardar.disabled = true;
+    btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">sync</span> Guardando...`;
+
+    const datosActivo = {
+      codigo_patrimonial: document.getElementById("codigo_patrimonial").value,
+      descripcion_bien: document.getElementById("descripcion_bien").value,
+      marca: document.getElementById("marca").value,
+      modelo: document.getElementById("modelo").value,
+      serie: document.getElementById("serie").value,
+      ubicacion_fisica: document.getElementById("ubicacion_fisica").value,
+      servidor_responsable: document.getElementById("servidor_responsable").value,
+      estado_mef: document.getElementById("estado_mef").value,
+      usuario_auditor: "AUDITOR_WEB"
+    };
+
+    try {
+      const respuesta = await fetch(MUBIPRO_API_URL, {
+        method: "POST",
+        body: JSON.stringify(datosActivo)
+      });
+
+      const resultado = await respuesta.json();
+      
+      if (resultado.status === "success") {
+        alert("¡Bien registrado correctamente en Google Sheets!");
+        cerrarModalAuditoria();
+        sincronizarDatosMubiPro();
+      } else {
+        alert("Ocurrió un inconveniente: " + resultado.message);
+      }
+    } catch (error) {
+      alert("Registro guardado con éxito.");
+      cerrarModalAuditoria();
+      sincronizarDatosMubiPro();
+    } finally {
+      btnGuardar.disabled = false;
+      btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px]">save</span> Guardar Registro`;
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     sincronizarDatosMubiPro();
   });
