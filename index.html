@@ -108,20 +108,28 @@
 </script>
 </head>
 <body class="bg-background font-body-md text-on-surface antialiased">
-<aside class="fixed left-0 top-0 h-full w-72 bg-on-background z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+
+<!-- OVERLAY MÓVIL (CUANDO EL MENÚ LATERAL ESTÁ ABIERTO EN CELULARES) -->
+<div id="mobileMenuOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+<!-- SIDEBAR RESPONSIVO -->
+<aside id="sidebar" class="fixed left-0 top-0 h-full w-72 bg-on-background z-50 flex flex-col justify-between shadow-xl transition-transform duration-300 -translate-x-full lg:translate-x-0">
   <div class="flex flex-col flex-1 min-h-0">
-    <div class="h-16 px-space-lg flex items-center justify-between">
+    <div class="h-16 px-space-lg flex items-center justify-between border-b border-outline-variant/10">
       <div class="flex items-center gap-space-sm">
         <img alt="MubiPro Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ws_Tr3b7TppqdEM8LPXHco_S-7t0WRFcg314Tf8GoR54SmryiToBUiXs0k_1XxxcClTR08Fu23g_oQvrrm1VZOlvSWWo2uvs_mgXpYkqAdET0muO1XPXVoKlYPUonkKT4NLiHbWSrUrqS89uK5bX_WY-v1yjKxirmaiftn4yfHppmVUEIkwmqfyKQzI9uJYpLPxaXbbShTDQVc5sUKp4q5XU_2xcoJK5TidmV3RPQalo8jHVh4WVYnTQ"/>
         <span class="font-headline-sm text-headline-sm text-on-primary tracking-tight font-bold">MubiPro</span>
       </div>
-      <span class="px-space-xs py-0.5 rounded text-label-sm font-label-sm bg-primary-container text-on-primary font-semibold tracking-wide">v1.0 Pro</span>
+      <button onclick="toggleSidebar()" class="lg:hidden text-outline-variant hover:text-on-primary p-1">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
     </div>
+    
     <div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md">
       <div class="space-y-space-xs">
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OVERVIEW</div>
         <nav class="space-y-1">
-          <a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a>
           <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Control Patrimonial</span></a>
         </nav>
       </div>
@@ -129,7 +137,7 @@
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OPERACIONES</div>
         <nav class="space-y-1">
           <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Toma de Inventario</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="abrirModalAuditoria(); return false;"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="abrirModalAuditoria(); toggleSidebar(); return false;"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
           <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Verificación</span></a>
         </nav>
       </div>
@@ -137,11 +145,12 @@
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">REPORTES</div>
         <nav class="space-y-1">
           <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Conciliación MEF</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="descargarExcelMubiPro(); return false;"><span class="material-symbols-outlined text-[18px]">table_chart</span><span>Exportar Excel</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="descargarExcelMubiPro(); toggleSidebar(); return false;"><span class="material-symbols-outlined text-[18px]">table_chart</span><span>Exportar Excel</span></a>
         </nav>
       </div>
     </div>
   </div>
+  
   <div class="p-space-md bg-inverse-surface/40">
     <div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-inverse-surface transition-colors cursor-pointer">
       <div class="flex items-center gap-space-sm">
@@ -151,225 +160,216 @@
         </div>
         <div class="flex flex-col">
           <span class="text-body-sm font-body-sm text-on-primary font-semibold">Auditor General</span>
-          <span class="text-label-sm font-label-sm text-outline-variant">auditoria@ugelventanilla.gob.pe</span>
+          <span class="text-label-sm font-label-sm text-outline-variant truncate w-36">auditoria@ugelventanilla.gob.pe</span>
         </div>
       </div>
-      <span class="material-symbols-outlined text-outline-variant text-[18px]">unfold_more</span>
     </div>
   </div>
 </aside>
 
-<div class="pl-72">
-  <header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-    <div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-md">
-      <div class="flex items-center gap-space-md flex-1 max-w-2xl">
-        <div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm font-medium">
-          <span class="material-symbols-outlined text-[14px] text-primary">domain</span>
-          <span>UGEL Ventanilla - Periodo 2026</span>
-        </div>
-        <div class="relative flex-1">
-          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
-          <input class="w-full bg-surface-container-low pl-10 pr-4 py-2 rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Buscar bien por código o descripción... (⌘K)" type="text"/>
-        </div>
+<!-- CONTENIDO PRINCIPAL ADAPTATIVO -->
+<div class="lg:pl-72 transition-all duration-300">
+  <!-- ENCABEZADO MÓVIL / ESCRITORIO -->
+  <header class="fixed top-0 left-0 lg:left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] px-4 lg:px-gutter-desktop flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3 flex-1">
+      <!-- Botón Menú Hamburguesa en Celular -->
+      <button onclick="toggleSidebar()" class="lg:hidden p-2 text-on-surface hover:bg-surface-container rounded-lg transition-colors">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button>
+
+      <div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-medium">
+        <span class="material-symbols-outlined text-[14px] text-primary">domain</span>
+        <span class="truncate">UGEL Ventanilla</span>
       </div>
-      <div class="flex items-center gap-space-md">
-        <div class="flex items-center gap-space-xs text-tertiary text-label-sm font-label-sm bg-surface-container-lowest px-space-sm py-1 rounded-full">
-          <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
-          <span class="hidden sm:inline font-medium">Sincronizado</span>
-        </div>
-        <button onclick="abrirModalAuditoria()" class="flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary px-space-md py-2 rounded-lg text-label-md font-label-md font-semibold transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
-          <span class="material-symbols-outlined text-[16px]">bolt</span>
-          <span>NUEVA AUDITORÍA / ESCANEAR</span>
-        </button>
+
+      <div class="relative flex-1 max-w-md">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+        <input class="w-full bg-surface-container-low pl-9 pr-3 py-1.5 lg:py-2 rounded-lg text-body-sm lg:text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Buscar bien por código..." type="text"/>
       </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button onclick="abrirModalAuditoria()" class="flex items-center gap-1 bg-primary-container hover:bg-primary text-on-primary px-3 py-1.5 lg:px-space-md lg:py-2 rounded-lg text-label-sm lg:text-label-md font-semibold transition-colors shadow-sm">
+        <span class="material-symbols-outlined text-[18px]">bolt</span>
+        <span class="hidden md:inline">NUEVA AUDITORÍA / ESCANEAR</span>
+        <span class="md:hidden">ESCANEAR</span>
+      </button>
     </div>
   </header>
 
-  <main class="relative pt-16 bg-surface min-h-screen">
-    <div class="flex flex-col w-full">
-      <div class="px-gutter-desktop py-space-xl max-w-[1680px] w-full mx-auto space-y-space-xl">
-        
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
-          <div>
-            <div class="flex items-center gap-space-xs text-secondary text-label-sm font-label-sm uppercase tracking-wider mb-1">
-              <span>Sistema de Gestión Patrimonial</span>
-              <span>•</span>
-              <span class="text-tertiary font-semibold flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> UGEL Ventanilla en línea
-              </span>
-            </div>
-            <h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight font-bold">
-              Panel de Control Patrimonial 2026
-            </h1>
+  <main class="relative pt-20 px-4 lg:px-gutter-desktop pb-space-xl bg-surface min-h-screen">
+    <div class="max-w-[1680px] w-full mx-auto space-y-6">
+      
+      <!-- STRIP INFORMATIVO DE ENCABEZADO -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-1 text-secondary text-label-sm uppercase tracking-wider mb-1">
+            <span>Sistema de Gestión Patrimonial</span>
+            <span>•</span>
+            <span class="text-tertiary font-semibold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> En línea
+            </span>
           </div>
-          <div class="flex flex-wrap items-center gap-space-sm">
-            <div class="flex items-center gap-2 bg-surface-container-low px-space-md py-2 rounded-xl">
-              <span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
-              <span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Corte Fiscal: 24 May 2026</span>
-            </div>
-            <div class="flex items-center gap-space-xs bg-surface-container-lowest shadow-sm rounded-xl p-1">
-              <button onclick="descargarExcelMubiPro()" class="flex items-center gap-1 px-space-sm py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-[16px]">file_download</span>
-                <span>Exportar XLSX</span>
-              </button>
-              <button onclick="abrirModalAuditoria()" class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg text-label-md font-label-md bg-primary-container text-on-primary hover:bg-primary transition-all shadow-sm">
-                <span class="material-symbols-outlined text-[16px]">qr_code_scanner</span>
-                <span>Escanear Lote</span>
-              </button>
-            </div>
-          </div>
+          <h1 class="text-headline-md sm:text-headline-lg font-bold text-on-surface tracking-tight">
+            Panel de Control Patrimonial 2026
+          </h1>
         </div>
 
-        <!-- KPI CARDS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
-            <div class="flex items-center gap-2 mb-2">
-              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
-                <span class="material-symbols-outlined text-[20px]">inventory_2</span>
-              </div>
-              <span class="text-title-md font-title-md text-secondary">Total Activos Registrados</span>
-            </div>
-            <div class="text-display-hero font-display-hero text-on-surface tracking-tight">10,266</div>
-            <span class="text-body-sm text-outline">Base UGEL Ventanilla</span>
-          </div>
-
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
-            <div class="flex items-center gap-2 mb-2">
-              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
-                <span class="material-symbols-outlined text-[20px]">task_alt</span>
-              </div>
-              <span class="text-title-md font-title-md text-secondary">Bienes Conciliados</span>
-            </div>
-            <div class="text-display-hero font-display-hero text-on-surface tracking-tight">8,002</div>
-            <span class="text-body-sm text-tertiary font-bold">77.9% Cumplimiento</span>
-          </div>
-
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
-            <div class="flex items-center gap-2 mb-2">
-              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
-                <span class="material-symbols-outlined text-[20px]">pending_actions</span>
-              </div>
-              <span class="text-title-md font-title-md text-secondary">Pendientes</span>
-            </div>
-            <div class="text-display-hero font-display-hero text-on-surface tracking-tight">2,264</div>
-            <span class="text-body-sm text-outline">En barrido de campo</span>
-          </div>
-
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
-            <div class="flex items-center gap-2 mb-2">
-              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
-                <span class="material-symbols-outlined text-[20px]">health_and_safety</span>
-              </div>
-              <span class="text-title-md font-title-md text-secondary">Conservación MEF</span>
-            </div>
-            <div class="text-body-sm text-on-surface font-semibold">[B] 5,420 | [R] 3,110 | [M] 1,240 | [CH] 496</div>
-            <span class="text-label-sm text-outline">Estándar SBN</span>
-          </div>
+        <div class="flex items-center gap-2">
+          <button onclick="descargarExcelMubiPro()" class="flex-1 sm:flex-none flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-label-md font-medium bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-low transition-colors">
+            <span class="material-symbols-outlined text-[18px]">file_download</span>
+            <span>Exportar XLSX</span>
+          </button>
         </div>
-
       </div>
+
+      <!-- KPI CARDS RESPONSIVOS (1 COL CELULAR / 2 COL TABLET / 4 COL PC) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-[18px]">inventory_2</span>
+            </div>
+            <span class="text-title-md text-secondary">Total Activos Registrados</span>
+          </div>
+          <div class="text-display-hero-mobile sm:text-display-hero font-bold text-on-surface">10,266</div>
+          <span class="text-body-sm text-outline">Base UGEL Ventanilla</span>
+        </div>
+
+        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
+              <span class="material-symbols-outlined text-[18px]">task_alt</span>
+            </div>
+            <span class="text-title-md text-secondary">Bienes Conciliados</span>
+          </div>
+          <div class="text-display-hero-mobile sm:text-display-hero font-bold text-on-surface">8,002</div>
+          <span class="text-body-sm text-tertiary font-bold">77.9% Cumplimiento</span>
+        </div>
+
+        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+              <span class="material-symbols-outlined text-[18px]">pending_actions</span>
+            </div>
+            <span class="text-title-md text-secondary">Pendientes</span>
+          </div>
+          <div class="text-display-hero-mobile sm:text-display-hero font-bold text-on-surface">2,264</div>
+          <span class="text-body-sm text-outline">En barrido de campo</span>
+        </div>
+
+        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+              <span class="material-symbols-outlined text-[18px]">health_and_safety</span>
+            </div>
+            <span class="text-title-md text-secondary">Conservación MEF</span>
+          </div>
+          <div class="text-body-sm text-on-surface font-semibold">[B] 5,420 | [R] 3,110 | [M] 1,240</div>
+          <span class="text-label-sm text-outline">Estándar SBN</span>
+        </div>
+      </div>
+
     </div>
   </main>
 </div>
 
-<!-- ======================================================== -->
-<!-- MODAL COMPLETO SIGA-MEF DE AUDITORÍA Y REGISTRO DE BIENES -->
-<!-- ======================================================== -->
-<div id="modalAuditoria" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
-  <div class="bg-surface-container-lowest rounded-2xl max-w-3xl w-full p-6 shadow-2xl border border-outline-variant/30 max-h-[90vh] overflow-y-auto my-auto">
+<!-- MODAL COMPLETO MULTIDISPOSITIVO (MÓVIL + DESKTOP) -->
+<div id="modalAuditoria" class="fixed inset-0 bg-on-background/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-3xl w-full p-4 sm:p-6 shadow-2xl border border-outline-variant/30 max-h-[92vh] overflow-y-auto my-auto">
     
-    <div class="flex items-center justify-between border-b border-outline-variant/20 pb-4 mb-4">
+    <div class="flex items-center justify-between border-b border-outline-variant/20 pb-3 mb-4">
       <div class="flex items-center gap-2">
         <div class="p-2 rounded-lg bg-primary-container text-on-primary">
-          <span class="material-symbols-outlined text-[22px]">qr_code_scanner</span>
+          <span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
         </div>
         <div>
-          <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Toma de Inventario Físico - SIGA MEF</h3>
-          <p class="text-body-sm font-body-sm text-outline">Estructura Oficial Directiva MEF N° 0006-2021-EF/54.01</p>
+          <h3 class="text-title-md sm:text-headline-sm font-bold text-on-surface">Toma de Inventario SIGA-MEF</h3>
+          <p class="text-label-sm sm:text-body-sm text-outline">Directiva MEF N° 0006-2021-EF/54.01</p>
         </div>
       </div>
-      <button onclick="cerrarModalAuditoria()" class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+      <button onclick="cerrarModalAuditoria()" class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
     </div>
 
-    <form id="formAuditoria" onsubmit="guardarBienAuditoria(event)" class="space-y-6">
+    <form id="formAuditoria" onsubmit="guardarBienAuditoria(event)" class="space-y-4 sm:space-y-6">
       
-      <!-- SECCIÓN 1: Ubicación y Estructura Organizacional -->
-      <div class="bg-surface-container-low/60 rounded-xl p-4 border border-outline-variant/20 space-y-3">
-        <div class="flex items-center gap-2 text-primary font-bold text-label-md uppercase tracking-wider">
+      <!-- SECCIÓN 1: Ubicación -->
+      <div class="bg-surface-container-low/60 rounded-xl p-3 sm:p-4 border border-outline-variant/20 space-y-3">
+        <div class="flex items-center gap-2 text-primary font-bold text-label-sm sm:text-label-md uppercase tracking-wider">
           <span class="material-symbols-outlined text-[18px]">domain</span>
           <span>1. Ubicación y Estructura Organizacional</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Departamento</label>
-            <input type="text" id="departamento" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="departamento" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Provincia</label>
-            <input type="text" id="provincia" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="provincia" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Distrito</label>
-            <input type="text" id="distrito" value="VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="distrito" value="VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Sede / Entidad</label>
-            <input type="text" id="sede" value="SEDE CENTRAL UGEL VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="sede" value="SEDE CENTRAL UGEL VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Gerencia / Dirección</label>
-            <input type="text" id="gerencia" value="DIRECCIÓN DE GESTIÓN INSTITUCIONAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="gerencia" value="DIRECCIÓN DE GESTIÓN INSTITUCIONAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Área / Oficina *</label>
-            <input type="text" id="area" required placeholder="Ej: LOGÍSTICA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="area" required placeholder="Ej: LOGÍSTICA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Subárea</label>
-            <input type="text" id="subarea" placeholder="Ej: PATRIMONIO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="subarea" placeholder="Ej: PATRIMONIO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Local</label>
-            <input type="text" id="local" value="LOCAL PRINCIPAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="local" value="LOCAL PRINCIPAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Piso</label>
-            <input type="text" id="piso" placeholder="Ej: PISO 2" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="piso" placeholder="Ej: PISO 2" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Ambiente</label>
-            <input type="text" id="ambiente" placeholder="Ej: OFICINA ADM-201" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+            <input type="text" id="ambiente" placeholder="Ej: OFICINA 201" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
           </div>
         </div>
       </div>
 
-      <!-- SECCIÓN 2: Datos Patrimoniales del Bien -->
-      <div class="bg-surface-container-low/60 rounded-xl p-4 border border-outline-variant/20 space-y-3">
-        <div class="flex items-center gap-2 text-primary font-bold text-label-md uppercase tracking-wider">
+      <!-- SECCIÓN 2: Datos del Bien -->
+      <div class="bg-surface-container-low/60 rounded-xl p-3 sm:p-4 border border-outline-variant/20 space-y-3">
+        <div class="flex items-center gap-2 text-primary font-bold text-label-sm sm:text-label-md uppercase tracking-wider">
           <span class="material-symbols-outlined text-[18px]">inventory_2</span>
           <span>2. Identificación del Bien Patrimonial</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Código Patrimonial / SBN *</label>
-            <input type="text" id="codigo_patrimonial" required class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md font-mono text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: 740895000004"/>
+            <input type="text" id="codigo_patrimonial" required class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md font-mono text-on-surface border border-outline-variant/30" placeholder="Ej: 740895000004"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Estado MEF *</label>
-            <select id="estado_mef" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container font-medium">
+            <select id="estado_mef" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 font-medium">
               <option value="BUENO">[B] Bueno</option>
               <option value="REGULAR">[R] Regular</option>
               <option value="MALO">[M] Malo</option>
@@ -380,33 +380,33 @@
 
         <div>
           <label class="block text-label-sm font-semibold text-on-surface mb-1">Descripción del Bien *</label>
-          <input type="text" id="descripcion_bien" required oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: LAPTOP INTEL CORE I7 16GB RAM"/>
+          <input type="text" id="descripcion_bien" required oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="Ej: LAPTOP INTEL CORE I7 16GB RAM"/>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Marca</label>
-            <input type="text" id="marca" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="HP / DELL"/>
+            <input type="text" id="marca" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="HP / DELL"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Modelo</label>
-            <input type="text" id="modelo" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="PROBOOK 450 G9"/>
+            <input type="text" id="modelo" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="PROBOOK 450 G9"/>
           </div>
           <div>
             <label class="block text-label-sm font-semibold text-on-surface mb-1">Serie</label>
-            <input type="text" id="serie" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="CND123456X"/>
+            <input type="text" id="serie" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="CND123456X"/>
           </div>
         </div>
 
         <div>
           <label class="block text-label-sm font-semibold text-on-surface mb-1">Servidor Responsable / Custodio</label>
-          <input type="text" id="servidor_responsable" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: LIC. MARCO TULIO MENDOZA"/>
+          <input type="text" id="servidor_responsable" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="Ej: LIC. MARCO TULIO MENDOZA"/>
         </div>
       </div>
 
-      <div class="pt-2 flex items-center justify-end gap-3 border-t border-outline-variant/20">
-        <button type="button" onclick="cerrarModalAuditoria()" class="px-4 py-2 rounded-lg text-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Cancelar</button>
-        <button type="submit" id="btnGuardar" class="px-6 py-2.5 rounded-lg text-label-md font-semibold bg-primary-container hover:bg-primary text-on-primary transition-colors flex items-center gap-2 shadow-md">
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-end gap-2 sm:gap-3 border-t border-outline-variant/20">
+        <button type="button" onclick="cerrarModalAuditoria()" class="w-full sm:w-auto px-4 py-2 rounded-lg text-label-md font-medium text-on-surface-variant hover:bg-surface-container text-center">Cancelar</button>
+        <button type="submit" id="btnGuardar" class="w-full sm:w-auto px-6 py-2.5 rounded-lg text-label-md font-semibold bg-primary-container hover:bg-primary text-on-primary flex items-center justify-center gap-2 shadow-md">
           <span class="material-symbols-outlined text-[18px]">save</span>
           <span>Guardar Registro SIGA-MEF</span>
         </button>
@@ -418,6 +418,13 @@
 <script>
   const MUBIPRO_API_URL = "https://script.google.com/macros/s/AKfycbwPridvu0c4XxGSy6hjmeQ7CW_HQzatDaN5cy0RfGU2s-LSKg46mf-8aFVoDBt8Foh0aA/exec";
   const GOOGLE_SHEET_EXPORT_URL = "https://docs.google.com/spreadsheets/d/1g_1JRcqvUYajRVfDtJE1OAYTmsOIT7hNdkZagrt1FiE/export?format=xlsx";
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("mobileMenuOverlay");
+    sidebar.classList.toggle("-translate-x-full");
+    overlay.classList.toggle("hidden");
+  }
 
   function abrirModalAuditoria() {
     document.getElementById("modalAuditoria").classList.remove("hidden");
