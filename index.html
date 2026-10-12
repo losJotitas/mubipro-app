@@ -121,7 +121,7 @@
       <div class="space-y-space-xs">
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OVERVIEW</div>
         <nav class="space-y-1">
-          <a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a>
+          <a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a>
           <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Control Patrimonial</span></a>
         </nav>
       </div>
@@ -272,17 +272,20 @@
   </main>
 </div>
 
-<!-- MODAL DE AUDITORÍA -->
-<div id="modalAuditoria" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-outline-variant/30">
+<!-- ======================================================== -->
+<!-- MODAL COMPLETO SIGA-MEF DE AUDITORÍA Y REGISTRO DE BIENES -->
+<!-- ======================================================== -->
+<div id="modalAuditoria" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-3xl w-full p-6 shadow-2xl border border-outline-variant/30 max-h-[90vh] overflow-y-auto my-auto">
+    
     <div class="flex items-center justify-between border-b border-outline-variant/20 pb-4 mb-4">
       <div class="flex items-center gap-2">
         <div class="p-2 rounded-lg bg-primary-container text-on-primary">
-          <span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+          <span class="material-symbols-outlined text-[22px]">qr_code_scanner</span>
         </div>
         <div>
-          <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Nueva Auditoría / Registro</h3>
-          <p class="text-body-sm font-body-sm text-outline">Directiva MEF N° 0006-2021-EF/54.01</p>
+          <h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Toma de Inventario Físico - SIGA MEF</h3>
+          <p class="text-body-sm font-body-sm text-outline">Estructura Oficial Directiva MEF N° 0006-2021-EF/54.01</p>
         </div>
       </div>
       <button onclick="cerrarModalAuditoria()" class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
@@ -290,59 +293,122 @@
       </button>
     </div>
 
-    <form id="formAuditoria" onsubmit="guardarBienAuditoria(event)" class="space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Código Patrimonial / SBN *</label>
-          <input type="text" id="codigo_patrimonial" required class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md font-mono text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: 740895000004"/>
+    <form id="formAuditoria" onsubmit="guardarBienAuditoria(event)" class="space-y-6">
+      
+      <!-- SECCIÓN 1: Ubicación y Estructura Organizacional -->
+      <div class="bg-surface-container-low/60 rounded-xl p-4 border border-outline-variant/20 space-y-3">
+        <div class="flex items-center gap-2 text-primary font-bold text-label-md uppercase tracking-wider">
+          <span class="material-symbols-outlined text-[18px]">domain</span>
+          <span>1. Ubicación y Estructura Organizacional</span>
         </div>
-        <div>
-          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Estado MEF *</label>
-          <select id="estado_mef" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container font-medium">
-            <option value="BUENO">[B] Bueno</option>
-            <option value="REGULAR">[R] Regular</option>
-            <option value="MALO">[M] Malo</option>
-            <option value="CHATARRA">[CH] Chatarra</option>
-          </select>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Departamento</label>
+            <input type="text" id="departamento" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Provincia</label>
+            <input type="text" id="provincia" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Distrito</label>
+            <input type="text" id="distrito" value="VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Sede / Entidad</label>
+            <input type="text" id="sede" value="SEDE CENTRAL UGEL VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Gerencia / Dirección</label>
+            <input type="text" id="gerencia" value="DIRECCIÓN DE GESTIÓN INSTITUCIONAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Área / Oficina *</label>
+            <input type="text" id="area" required placeholder="Ej: LOGÍSTICA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Subárea</label>
+            <input type="text" id="subarea" placeholder="Ej: PATRIMONIO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Local</label>
+            <input type="text" id="local" value="LOCAL PRINCIPAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Piso</label>
+            <input type="text" id="piso" placeholder="Ej: PISO 2" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Ambiente</label>
+            <input type="text" id="ambiente" placeholder="Ej: OFICINA ADM-201" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary-container"/>
+          </div>
         </div>
       </div>
 
-      <div>
-        <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Descripción del Bien *</label>
-        <input type="text" id="descripcion_bien" required class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: Monitor LED 24 Pulgadas FHD"/>
+      <!-- SECCIÓN 2: Datos Patrimoniales del Bien -->
+      <div class="bg-surface-container-low/60 rounded-xl p-4 border border-outline-variant/20 space-y-3">
+        <div class="flex items-center gap-2 text-primary font-bold text-label-md uppercase tracking-wider">
+          <span class="material-symbols-outlined text-[18px]">inventory_2</span>
+          <span>2. Identificación del Bien Patrimonial</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Código Patrimonial / SBN *</label>
+            <input type="text" id="codigo_patrimonial" required class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md font-mono text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: 740895000004"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Estado MEF *</label>
+            <select id="estado_mef" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container font-medium">
+              <option value="BUENO">[B] Bueno</option>
+              <option value="REGULAR">[R] Regular</option>
+              <option value="MALO">[M] Malo</option>
+              <option value="CHATARRA">[CH] Chatarra</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-label-sm font-semibold text-on-surface mb-1">Descripción del Bien *</label>
+          <input type="text" id="descripcion_bien" required oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: LAPTOP INTEL CORE I7 16GB RAM"/>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Marca</label>
+            <input type="text" id="marca" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="HP / DELL"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Modelo</label>
+            <input type="text" id="modelo" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="PROBOOK 450 G9"/>
+          </div>
+          <div>
+            <label class="block text-label-sm font-semibold text-on-surface mb-1">Serie</label>
+            <input type="text" id="serie" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="CND123456X"/>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-label-sm font-semibold text-on-surface mb-1">Servidor Responsable / Custodio</label>
+          <input type="text" id="servidor_responsable" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej: LIC. MARCO TULIO MENDOZA"/>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-        <div>
-          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Marca</label>
-          <input type="text" id="marca" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="LG / HP"/>
-        </div>
-        <div>
-          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Modelo</label>
-          <input type="text" id="modelo" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="24MK600M"/>
-        </div>
-        <div>
-          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Serie</label>
-          <input type="text" id="serie" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="S/N 901NT82"/>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Ubicación Física / Ambiente</label>
-          <input type="text" id="ubicacion_fisica" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Oficina Logística"/>
-        </div>
-        <div>
-          <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Servidor Responsable</label>
-          <input type="text" id="servidor_responsable" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Carlos Mendoza"/>
-        </div>
-      </div>
-
-      <div class="pt-4 flex items-center justify-end gap-3 border-t border-outline-variant/20">
-        <button type="button" onclick="cerrarModalAuditoria()" class="px-4 py-2 rounded-lg text-label-md font-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Cancelar</button>
-        <button type="submit" id="btnGuardar" class="px-5 py-2 rounded-lg text-label-md font-label-md font-semibold bg-primary-container hover:bg-primary text-on-primary transition-colors flex items-center gap-2 shadow-sm">
+      <div class="pt-2 flex items-center justify-end gap-3 border-t border-outline-variant/20">
+        <button type="button" onclick="cerrarModalAuditoria()" class="px-4 py-2 rounded-lg text-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Cancelar</button>
+        <button type="submit" id="btnGuardar" class="px-6 py-2.5 rounded-lg text-label-md font-semibold bg-primary-container hover:bg-primary text-on-primary transition-colors flex items-center gap-2 shadow-md">
           <span class="material-symbols-outlined text-[18px]">save</span>
-          <span>Guardar Registro</span>
+          <span>Guardar Registro SIGA-MEF</span>
         </button>
       </div>
     </form>
@@ -363,7 +429,6 @@
   }
 
   function descargarExcelMubiPro() {
-    // Descarga directa del archivo Excel formateado desde la base de datos central
     window.open(GOOGLE_SHEET_EXPORT_URL, '_blank');
   }
 
@@ -374,12 +439,21 @@
     btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">sync</span> Guardando...`;
 
     const datosActivo = {
+      departamento: document.getElementById("departamento").value,
+      provincia: document.getElementById("provincia").value,
+      distrito: document.getElementById("distrito").value,
+      sede: document.getElementById("sede").value,
+      gerencia: document.getElementById("gerencia").value,
+      area: document.getElementById("area").value,
+      subarea: document.getElementById("subarea").value,
+      local: document.getElementById("local").value,
+      piso: document.getElementById("piso").value,
+      ambiente: document.getElementById("ambiente").value,
       codigo_patrimonial: document.getElementById("codigo_patrimonial").value,
       descripcion_bien: document.getElementById("descripcion_bien").value,
       marca: document.getElementById("marca").value,
       modelo: document.getElementById("modelo").value,
       serie: document.getElementById("serie").value,
-      ubicacion_fisica: document.getElementById("ubicacion_fisica").value,
       servidor_responsable: document.getElementById("servidor_responsable").value,
       estado_mef: document.getElementById("estado_mef").value,
       usuario_auditor: "AUDITOR_WEB"
@@ -404,7 +478,7 @@
       cerrarModalAuditoria();
     } finally {
       btnGuardar.disabled = false;
-      btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px]">save</span> Guardar Registro`;
+      btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px]">save</span> Guardar Registro SIGA-MEF`;
     }
   }
 </script>
