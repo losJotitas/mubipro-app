@@ -120,31 +120,24 @@
     <div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md">
       <div class="space-y-space-xs">
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OVERVIEW</div>
-        <nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold">
+        <nav class="space-y-1">
           <a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="control-patrimonial" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Control Patrimonial</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Control Patrimonial</span></a>
         </nav>
       </div>
       <div class="space-y-space-xs">
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OPERACIONES</div>
-        <nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold">
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="toma-de-inventario" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Toma de Inventario</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="escaner-qr-barras" href="#" onclick="abrirModalAuditoria(); return false;"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="verificacion" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Verificación</span></a>
+        <nav class="space-y-1">
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Toma de Inventario</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="abrirModalAuditoria(); return false;"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Verificación</span></a>
         </nav>
       </div>
       <div class="space-y-space-xs">
         <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">REPORTES</div>
-        <nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold">
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="conciliacion-mef" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Conciliación MEF</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="exportar-excel" href="#"><span class="material-symbols-outlined text-[18px]">table_chart</span><span>Exportar Excel</span></a>
-        </nav>
-      </div>
-      <div class="space-y-space-xs">
-        <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">CONFIGURACIÓN</div>
-        <nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold">
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="usuarios" href="#"><span class="material-symbols-outlined text-[18px]">group</span><span>Usuarios</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" data-path="ajustes" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Ajustes</span></a>
+        <nav class="space-y-1">
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Conciliación MEF</span></a>
+          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="descargarExcelMubiPro(); return false;"><span class="material-symbols-outlined text-[18px]">table_chart</span><span>Exportar Excel</span></a>
         </nav>
       </div>
     </div>
@@ -184,17 +177,10 @@
           <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
           <span class="hidden sm:inline font-medium">Sincronizado</span>
         </div>
-        <button aria-label="Notificaciones" class="relative p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors">
-          <span class="material-symbols-outlined text-[20px]">notifications</span>
-          <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
-        </button>
         <button onclick="abrirModalAuditoria()" class="flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary px-space-md py-2 rounded-lg text-label-md font-label-md font-semibold transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
           <span class="material-symbols-outlined text-[16px]">bolt</span>
           <span>NUEVA AUDITORÍA / ESCANEAR</span>
         </button>
-        <div class="flex items-center pl-2">
-          <img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuLKUwS5Vomz0rRsNib60VPYsFmGLSLN5uJGf_tqGfO2yUtOAxSy4Z4_oLc6jgPYafp02T5T4c8sZiVSV96dpsjfSBPLuIlm2BsWOnaG1xNaK7CpCTU7BrIQh0xAOAiwljn8KBkFZtptWOxWSTU50BYq-NAoOK3qAM0VMpAFpEt9EqMa4q32peFYBqpNz220tFs7jYpTYZbdTh6D06AfPHw9V2svWGtVGjV0PslSHYbcye2gzNLZMA"/>
-        </div>
       </div>
     </div>
   </header>
@@ -222,13 +208,9 @@
               <span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Corte Fiscal: 24 May 2026</span>
             </div>
             <div class="flex items-center gap-space-xs bg-surface-container-lowest shadow-sm rounded-xl p-1">
-              <button class="flex items-center gap-1 px-space-sm py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
+              <button onclick="descargarExcelMubiPro()" class="flex items-center gap-1 px-space-sm py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
                 <span class="material-symbols-outlined text-[16px]">file_download</span>
                 <span>Exportar XLSX</span>
-              </button>
-              <button class="flex items-center gap-1 px-space-sm py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
-                <span>Informe MEF</span>
               </button>
               <button onclick="abrirModalAuditoria()" class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg text-label-md font-label-md bg-primary-container text-on-primary hover:bg-primary transition-all shadow-sm">
                 <span class="material-symbols-outlined text-[16px]">qr_code_scanner</span>
@@ -238,320 +220,51 @@
           </div>
         </div>
 
-        <!-- 1. TOP METRICS & KPI CARDS -->
+        <!-- KPI CARDS -->
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative overflow-hidden group">
-            <div class="flex items-start justify-between mb-space-sm">
-              <div class="flex items-center gap-2">
-                <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
-                  <span class="material-symbols-outlined text-[20px]">inventory_2</span>
-                </div>
-                <span class="text-title-md font-title-md text-secondary">Total Activos Registrados</span>
+          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[20px]">inventory_2</span>
               </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-tertiary font-semibold">
-                <span class="material-symbols-outlined text-[12px]">trending_up</span> +12.4%
-              </span>
+              <span class="text-title-md font-title-md text-secondary">Total Activos Registrados</span>
             </div>
-            <div>
-              <div class="text-display-hero font-display-hero text-on-surface tracking-tight mb-1">10,266</div>
-              <div class="flex items-center justify-between text-body-sm font-body-sm text-outline">
-                <span>Base consolidada UGEL Ventanilla</span>
-                <span class="text-label-sm font-label-sm text-secondary font-medium">Meta 100%</span>
-              </div>
-            </div>
-            <div class="w-full bg-surface-container-low h-1 rounded-full mt-3 overflow-hidden">
-              <div class="bg-primary-container h-full rounded-full w-full"></div>
-            </div>
+            <div class="text-display-hero font-display-hero text-on-surface tracking-tight">10,266</div>
+            <span class="text-body-sm text-outline">Base UGEL Ventanilla</span>
           </div>
 
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
-            <div class="flex items-start justify-between mb-space-sm">
-              <div class="flex items-center gap-2">
-                <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
-                  <span class="material-symbols-outlined text-[20px]">task_alt</span>
-                </div>
-                <span class="text-title-md font-title-md text-secondary">Bienes Conciliados</span>
+          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
+                <span class="material-symbols-outlined text-[20px]">task_alt</span>
               </div>
-              <div class="relative w-8 h-8 flex items-center justify-center">
-                <svg class="w-8 h-8 transform -rotate-90" viewBox="0 0 36 36">
-                  <path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
-                  <path class="text-tertiary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="77.9, 100" stroke-linecap="round" stroke-width="3.5"></path>
-                </svg>
-                <span class="absolute text-[9px] font-bold text-on-surface">78%</span>
-              </div>
+              <span class="text-title-md font-title-md text-secondary">Bienes Conciliados</span>
             </div>
-            <div>
-              <div class="flex items-baseline gap-2 mb-1">
-                <span class="text-display-hero font-display-hero text-on-surface tracking-tight">8,002</span>
-                <span class="text-label-md font-label-md text-tertiary font-bold">77.9%</span>
-              </div>
-              <p class="text-body-sm font-body-sm text-outline truncate" title="Directiva MEF N° 0006-2021-EF/54.01">Directiva MEF N° 0006-2021-EF/54.01</p>
-            </div>
-            <div class="w-full bg-surface-container-low h-1 rounded-full mt-3 overflow-hidden">
-              <div class="bg-tertiary h-full rounded-full" style="width: 77.9%"></div>
-            </div>
+            <div class="text-display-hero font-display-hero text-on-surface tracking-tight">8,002</div>
+            <span class="text-body-sm text-tertiary font-bold">77.9% Cumplimiento</span>
           </div>
 
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group">
-            <div class="flex items-start justify-between mb-space-sm">
-              <div class="flex items-center gap-2">
-                <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-secondary-fixed-variant">
-                  <span class="material-symbols-outlined text-[20px]">pending_actions</span>
-                </div>
-                <span class="text-title-md font-title-md text-secondary">Pendientes de Verificación</span>
+          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+                <span class="material-symbols-outlined text-[20px]">pending_actions</span>
               </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-secondary-fixed-variant font-medium">
-                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> En barrido
-              </span>
+              <span class="text-title-md font-title-md text-secondary">Pendientes</span>
             </div>
-            <div>
-              <div class="flex items-baseline gap-2 mb-1">
-                <span class="text-display-hero font-display-hero text-on-surface tracking-tight">2,264</span>
-                <span class="text-label-md font-label-md text-outline font-semibold">22.1%</span>
-              </div>
-              <div class="flex items-center justify-between text-body-sm font-body-sm text-outline">
-                <span>4 bloques de auditoría</span>
-                <span class="text-label-sm font-label-sm text-primary font-semibold cursor-pointer hover:underline">Ver lotes</span>
-              </div>
-            </div>
-            <div class="w-full bg-surface-container-low h-1 rounded-full mt-3 overflow-hidden">
-              <div class="bg-secondary h-full rounded-full" style="width: 22.1%"></div>
-            </div>
+            <div class="text-display-hero font-display-hero text-on-surface tracking-tight">2,264</div>
+            <span class="text-body-sm text-outline">En barrido de campo</span>
           </div>
 
-          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-space-xs">
-              <div class="flex items-center gap-2">
-                <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
-                  <span class="material-symbols-outlined text-[20px]">health_and_safety</span>
-                </div>
-                <span class="text-title-md font-title-md text-secondary">Conservación MEF</span>
+          <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+                <span class="material-symbols-outlined text-[20px]">health_and_safety</span>
               </div>
-              <span class="text-label-sm font-label-sm text-outline font-medium">SBN Cat.</span>
+              <span class="text-title-md font-title-md text-secondary">Conservación MEF</span>
             </div>
-            <div class="grid grid-cols-2 gap-2 my-1">
-              <div class="bg-surface-container-low/70 rounded-lg p-2 flex items-center justify-between">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-tertiary"></span>
-                  <span class="text-label-sm font-label-sm text-on-surface font-semibold">[B] Bueno</span>
-                </div>
-                <span class="text-label-sm font-label-sm text-outline font-medium">5,420</span>
-              </div>
-              <div class="bg-surface-container-low/70 rounded-lg p-2 flex items-center justify-between">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                  <span class="text-label-sm font-label-sm text-on-surface font-semibold">[R] Regular</span>
-                </div>
-                <span class="text-label-sm font-label-sm text-outline font-medium">3,110</span>
-              </div>
-              <div class="bg-surface-container-low/70 rounded-lg p-2 flex items-center justify-between">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-error"></span>
-                  <span class="text-label-sm font-label-sm text-on-surface font-semibold">[M] Malo</span>
-                </div>
-                <span class="text-label-sm font-label-sm text-outline font-medium">1,240</span>
-              </div>
-              <div class="bg-surface-container-low/70 rounded-lg p-2 flex items-center justify-between">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-outline"></span>
-                  <span class="text-label-sm font-label-sm text-on-surface font-semibold">[CH] Chatarra</span>
-                </div>
-                <span class="text-label-sm font-label-sm text-outline font-medium">496</span>
-              </div>
-            </div>
-            <div class="flex w-full h-1.5 rounded-full overflow-hidden mt-1 gap-0.5">
-              <div class="bg-tertiary h-full" style="width: 52.8%"></div>
-              <div class="bg-primary-container h-full" style="width: 30.3%"></div>
-              <div class="bg-error h-full" style="width: 12.1%"></div>
-              <div class="bg-outline h-full" style="width: 4.8%"></div>
-            </div>
+            <div class="text-body-sm text-on-surface font-semibold">[B] 5,420 | [R] 3,110 | [M] 1,240 | [CH] 496</div>
+            <span class="text-label-sm text-outline">Estándar SBN</span>
           </div>
-        </div>
-
-        <!-- 3. QUICK AUDIT TOOLBAR -->
-        <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
-          <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
-            <span class="text-label-sm font-label-sm text-outline uppercase tracking-wider font-semibold mr-1">Filtrar:</span>
-            <button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-on-background text-on-primary font-semibold shadow-sm transition-all whitespace-nowrap">Todos (10,266)</button>
-            <button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap">Sede Central (3,840)</button>
-            <button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap">Colegios UGEL (6,426)</button>
-            <button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Por Regularizar (184)</button>
-          </div>
-          <div class="flex items-center gap-2 w-full md:w-auto">
-            <div class="relative flex-1 md:w-64">
-              <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">qr_code_scanner</span>
-              <input class="w-full bg-surface-container-low pl-8 pr-12 py-1.5 rounded-lg text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container" placeholder="Lectura rápida de código..." type="text"/>
-              <span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] bg-surface-container text-secondary px-1 py-0.5 rounded font-mono">F2</span>
-            </div>
-            <button class="p-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors" title="Filtros avanzados">
-              <span class="material-symbols-outlined text-[18px]">tune</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 2. DATA VISUALIZATIONS & LIVE FEED SECTION -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
-          
-          <div class="lg:col-span-5 flex flex-col gap-space-lg">
-            <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
-              <div class="flex items-center justify-between mb-space-md">
-                <div>
-                  <h2 class="text-headline-sm font-headline-sm text-on-surface font-bold tracking-tight">Distribución de Estado Patrimonial</h2>
-                  <p class="text-body-sm font-body-sm text-outline">Conciliación física vs. registro SIGA-Patrimonio</p>
-                </div>
-                <span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface">more_vert</span>
-              </div>
-              <div class="flex flex-col sm:flex-row items-center justify-around py-space-md gap-space-md">
-                <div class="relative w-44 h-44 flex items-center justify-center">
-                  <svg class="w-44 h-44 transform -rotate-90" viewBox="0 0 100 100">
-                    <circle class="text-surface-container-low" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="12"></circle>
-                    <circle class="text-tertiary" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="196 251.2" stroke-dashoffset="0" stroke-linecap="round" stroke-width="12"></circle>
-                    <circle class="text-primary-container" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="35.1 251.2" stroke-dashoffset="-198" stroke-linecap="round" stroke-width="12"></circle>
-                    <circle class="text-error" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="20.1 251.2" stroke-dashoffset="-234" stroke-linecap="round" stroke-width="12"></circle>
-                  </svg>
-                  <div class="absolute flex flex-col items-center justify-center text-center">
-                    <span class="text-headline-md font-headline-md font-bold text-on-surface leading-tight">10,266</span>
-                    <span class="text-label-sm font-label-sm text-outline uppercase font-semibold">Total Bienes</span>
-                  </div>
-                </div>
-                <div class="flex flex-col space-y-space-sm w-full sm:w-auto">
-                  <div class="flex items-center justify-between sm:justify-start gap-4 p-2 rounded-lg bg-surface-container-low/40">
-                    <div class="flex items-center gap-2">
-                      <span class="w-3 h-3 rounded-full bg-tertiary"></span>
-                      <div>
-                        <div class="text-body-md font-body-md text-on-surface font-semibold">Conciliados</div>
-                        <div class="text-label-sm font-label-sm text-outline">Físico y documental</div>
-                      </div>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-mono-metric font-mono-metric text-on-surface font-bold">78.0%</span>
-                      <div class="text-label-sm font-label-sm text-secondary">8,008 und</div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between sm:justify-start gap-4 p-2 rounded-lg bg-surface-container-low/40">
-                    <div class="flex items-center gap-2">
-                      <span class="w-3 h-3 rounded-full bg-primary-container"></span>
-                      <div>
-                        <div class="text-body-md font-body-md text-on-surface font-semibold">Sobrantes</div>
-                        <div class="text-label-sm font-label-sm text-outline">Sin registro previo</div>
-                      </div>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-mono-metric font-mono-metric text-on-surface font-bold">14.0%</span>
-                      <div class="text-label-sm font-label-sm text-secondary">1,437 und</div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between sm:justify-start gap-4 p-2 rounded-lg bg-surface-container-low/40">
-                    <div class="flex items-center gap-2">
-                      <span class="w-3 h-3 rounded-full bg-error"></span>
-                      <div>
-                        <div class="text-body-md font-body-md text-on-surface font-semibold">Faltantes</div>
-                        <div class="text-label-sm font-label-sm text-outline">Por regularizar</div>
-                      </div>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-mono-metric font-mono-metric text-on-surface font-bold">8.0%</span>
-                      <div class="text-label-sm font-label-sm text-secondary">821 und</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
-              <div class="flex items-center justify-between mb-space-sm">
-                <span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-bold">Contabilidad &amp; Depreciación</span>
-                <span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-primary font-semibold">Periodo Anual 2026</span>
-              </div>
-              <div class="mb-space-md">
-                <div class="text-label-sm font-label-sm text-secondary mb-1">Valorización Neta Auditada</div>
-                <div class="text-headline-lg font-headline-lg text-on-surface font-bold tracking-tight">S/. 1,428,950.00</div>
-              </div>
-              <div class="grid grid-cols-2 gap-space-sm pt-space-sm">
-                <div class="bg-surface-container-low rounded-lg p-space-sm">
-                  <span class="text-label-sm font-label-sm text-outline block">Ratio de Depreciación</span>
-                  <span class="text-headline-sm font-headline-sm text-on-surface font-bold">34.8%</span>
-                  <span class="text-label-sm font-label-sm text-secondary block mt-0.5">S/. 764,120 amortizado</span>
-                </div>
-                <div class="bg-surface-container-low rounded-lg p-space-sm">
-                  <span class="text-label-sm font-label-sm text-outline block">Tasa Conciliación MEF</span>
-                  <span class="text-headline-sm font-headline-sm text-tertiary font-bold">96.4%</span>
-                  <span class="text-label-sm font-label-sm text-tertiary block mt-0.5">Dentro de umbral legal</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
-            <div class="flex items-center justify-between pb-space-sm">
-              <div>
-                <div class="flex items-center gap-2">
-                  <h2 class="text-headline-sm font-headline-sm text-on-surface font-bold tracking-tight">Últimos Bienes Escaneados</h2>
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-tertiary font-medium">
-                    <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse mr-1"></span> En directo
-                  </span>
-                </div>
-                <p class="text-body-sm font-body-sm text-outline">Registro fotográfico y geolocalizado en campo</p>
-              </div>
-              <button class="text-label-md font-label-md text-primary-container hover:text-primary font-semibold flex items-center gap-1 transition-colors">
-                <span>Ver historial completo</span>
-                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-              </button>
-            </div>
-
-            <div class="space-y-space-sm overflow-hidden my-space-sm">
-              <div class="p-space-md rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm group">
-                <div class="flex items-start gap-space-md">
-                  <div class="relative w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0 shadow-inner flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=150" alt="Asset">
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-2">
-                      <span class="text-label-sm font-mono text-primary font-bold">SBN 740895000412</span>
-                      <span class="px-1.5 py-0.5 rounded text-[10px] bg-tertiary-container text-on-tertiary-fixed font-semibold">[B] Bueno</span>
-                      <span class="text-label-sm font-label-sm text-outline flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">verified</span> Foto validada</span>
-                    </div>
-                    <h3 class="text-body-md font-body-md text-on-surface font-semibold mt-0.5">Laptop HP ProBook 450 G9 Intel i7 16GB</h3>
-                    <div class="flex items-center gap-2 text-body-sm font-body-sm text-outline mt-1">
-                      <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span> Oficina de Administración - Piso 2</span>
-                      <span>•</span>
-                      <span>Custodio: Lic. Marco Tulio</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex sm:flex-col items-end justify-between sm:justify-center w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-surface-container">
-                  <span class="text-label-sm font-label-sm text-outline">Hace 2 min</span>
-                  <span class="text-label-sm font-label-sm text-tertiary font-semibold flex items-center gap-1 mt-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Verificado</span>
-                </div>
-              </div>
-
-              <div class="p-space-md rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm group">
-                <div class="flex items-start gap-space-md">
-                  <div class="relative w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0 shadow-inner flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1595515106967-1c2e16d007b2?w=150" alt="Asset">
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-2">
-                      <span class="text-label-sm font-mono text-primary font-bold">SBN 467500129840</span>
-                      <span class="px-1.5 py-0.5 rounded text-[10px] bg-primary-container text-on-primary font-semibold">[R] Regular</span>
-                      <span class="text-label-sm font-label-sm text-outline flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">verified</span> Foto validada</span>
-                    </div>
-                    <h3 class="text-body-md font-body-md text-on-surface font-semibold mt-0.5">Escritorio Gerencial Madera Cedro 1.80m</h3>
-                    <div class="flex items-center gap-2 text-body-sm font-body-sm text-outline mt-1">
-                      <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span> Subdirección de Operaciones - Piso 1</span>
-                      <span>•</span>
-                      <span>Custodio: CPC Ana Torres</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex sm:flex-col items-end justify-between sm:justify-center w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-surface-container">
-                  <span class="text-label-sm font-label-sm text-outline">Hace 8 min</span>
-                  <span class="text-label-sm font-label-sm text-tertiary font-semibold flex items-center gap-1 mt-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Verificado</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -559,11 +272,9 @@
   </main>
 </div>
 
-<!-- ======================================================== -->
-<!-- MODAL DE AUDITORÍA Y REGISTRO DE BIENES -->
-<!-- ======================================================== -->
+<!-- MODAL DE AUDITORÍA -->
 <div id="modalAuditoria" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-outline-variant/30 transform transition-all">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-outline-variant/30">
     <div class="flex items-center justify-between border-b border-outline-variant/20 pb-4 mb-4">
       <div class="flex items-center gap-2">
         <div class="p-2 rounded-lg bg-primary-container text-on-primary">
@@ -588,10 +299,10 @@
         <div>
           <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Estado MEF *</label>
           <select id="estado_mef" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container font-medium">
-            <option value="Bueno">[B] Bueno</option>
-            <option value="Regular">[R] Regular</option>
-            <option value="Malo">[M] Malo</option>
-            <option value="Chatarra">[CH] Chatarra</option>
+            <option value="BUENO">[B] Bueno</option>
+            <option value="REGULAR">[R] Regular</option>
+            <option value="MALO">[M] Malo</option>
+            <option value="CHATARRA">[CH] Chatarra</option>
           </select>
         </div>
       </div>
@@ -604,26 +315,26 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div>
           <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Marca</label>
-          <input type="text" id="marca" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="LG / HP / Dell"/>
+          <input type="text" id="marca" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="LG / HP"/>
         </div>
         <div>
           <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Modelo</label>
-          <input type="text" id="modelo" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="24MK600M"/>
+          <input type="text" id="modelo" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="24MK600M"/>
         </div>
         <div>
           <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Serie</label>
-          <input type="text" id="serie" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="S/N 901NT82"/>
+          <input type="text" id="serie" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="S/N 901NT82"/>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Ubicación Física / Ambiente</label>
-          <input type="text" id="ubicacion_fisica" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Oficina Logística - Piso 3"/>
+          <input type="text" id="ubicacion_fisica" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Oficina Logística"/>
         </div>
         <div>
           <label class="block text-label-sm font-label-sm font-semibold text-on-surface mb-1">Servidor Responsable</label>
-          <input type="text" id="servidor_responsable" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ing. Carlos Mendoza"/>
+          <input type="text" id="servidor_responsable" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-low px-3 py-2 rounded-lg text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Carlos Mendoza"/>
         </div>
       </div>
 
@@ -638,11 +349,9 @@
   </div>
 </div>
 
-<!-- ======================================================== -->
-<!-- MUBIPRO BACKEND API INTEGRATION SCRIPT -->
-<!-- ======================================================== -->
 <script>
   const MUBIPRO_API_URL = "https://script.google.com/macros/s/AKfycbwPridvu0c4XxGSy6hjmeQ7CW_HQzatDaN5cy0RfGU2s-LSKg46mf-8aFVoDBt8Foh0aA/exec";
+  const GOOGLE_SHEET_EXPORT_URL = "https://docs.google.com/spreadsheets/d/1g_1JRcqvUYajRVfDtJE1OAYTmsOIT7hNdkZagrt1FiE/export?format=xlsx";
 
   function abrirModalAuditoria() {
     document.getElementById("modalAuditoria").classList.remove("hidden");
@@ -653,20 +362,9 @@
     document.getElementById("formAuditoria").reset();
   }
 
-  async function sincronizarDatosMubiPro() {
-    try {
-      console.log("Conectando MubiPro con la base de datos de Google Sheets...");
-      const respuesta = await fetch(MUBIPRO_API_URL);
-      const resultado = await respuesta.json();
-      
-      if (resultado.status === "success") {
-        console.log("¡Sincronización exitosa con Google Sheets!", resultado.data);
-      } else {
-        console.warn("Aviso del servidor:", resultado.message);
-      }
-    } catch (error) {
-      console.error("Error al conectar con el backend de MubiPro:", error);
-    }
+  function descargarExcelMubiPro() {
+    // Descarga directa del archivo Excel formateado desde la base de datos central
+    window.open(GOOGLE_SHEET_EXPORT_URL, '_blank');
   }
 
   async function guardarBienAuditoria(e) {
@@ -698,23 +396,17 @@
       if (resultado.status === "success") {
         alert("¡Bien registrado correctamente en Google Sheets!");
         cerrarModalAuditoria();
-        sincronizarDatosMubiPro();
       } else {
         alert("Ocurrió un inconveniente: " + resultado.message);
       }
     } catch (error) {
       alert("Registro guardado con éxito.");
       cerrarModalAuditoria();
-      sincronizarDatosMubiPro();
     } finally {
       btnGuardar.disabled = false;
       btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px]">save</span> Guardar Registro`;
     }
   }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    sincronizarDatosMubiPro();
-  });
 </script>
 
 </body>
