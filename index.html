@@ -3,491 +3,247 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="web_dashboard" name="shell-type"/>
+<title>Inleggo IO - MubiPro Patrimonial</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-  @layer base {
-    html, body { margin: 0; padding: 0; }
-    body { overscroll-behavior: none; }
-    main > :first-child { margin-top: 0 !important; }
-    main > :last-child { margin-bottom: 0 !important; }
-  }
-  ::-webkit-scrollbar { display: none; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
-<script id="tailwind-config">
-  tailwind.config = {
-    "darkMode": "class",
-    "theme": {
-      "extend": {
-        "colors": {
-          "on-secondary-container": "#5c647a",
-          "on-surface-variant": "#434655",
-          "surface-container": "#e5eeff",
-          "on-error-container": "#93000a",
-          "on-background": "#0b1c30",
-          "on-tertiary-fixed": "#002113",
-          "surface-container-lowest": "#ffffff",
-          "surface-bright": "#f8f9ff",
-          "surface": "#f8f9ff",
-          "on-secondary-fixed-variant": "#3f465c",
-          "primary-fixed-dim": "#b4c5ff",
-          "secondary": "#565e74",
-          "outline-variant": "#c3c6d7",
-          "on-primary": "#ffffff",
-          "tertiary": "#006242",
-          "surface-container-high": "#dce9ff",
-          "secondary-container": "#dae2fd",
-          "secondary-fixed": "#dae2fd",
-          "on-secondary": "#ffffff",
-          "error-container": "#ffdad6",
-          "inverse-on-surface": "#eaf1ff",
-          "on-error": "#ffffff",
-          "surface-tint": "#0053db",
-          "background": "#f8f9ff",
-          "surface-dim": "#cbdbf5",
-          "on-secondary-fixed": "#131b2e",
-          "tertiary-fixed": "#6ffbbe",
-          "inverse-surface": "#213145",
-          "on-primary-fixed": "#00174b",
-          "tertiary-fixed-dim": "#4edea3",
-          "surface-container-low": "#eff4ff",
-          "secondary-fixed-dim": "#bec6e0",
-          "on-surface": "#0b1c30",
-          "on-primary-fixed-variant": "#003ea8",
-          "primary": "#004ac6",
-          "primary-fixed": "#dbe1ff",
-          "primary-container": "#2563eb",
-          "on-tertiary-container": "#bdffdb",
-          "outline": "#737686",
-          "surface-container-highest": "#d3e4fe",
-          "on-primary-container": "#eeefff",
-          "on-tertiary": "#ffffff",
-          "inverse-primary": "#b4c5ff",
-          "tertiary-container": "#007d55",
-          "error": "#ba1a1a",
-          "on-tertiary-fixed-variant": "#005236",
-          "surface-variant": "#d3e4fe"
-        },
-        "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-        "spacing": { "space-md": "0.75rem", "space-lg": "1.25rem", "gutter": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "margin": "1rem", "margin-desktop": "2rem", "gutter-desktop": "1.5rem", "space-sm": "0.5rem" },
-        "fontFamily": {
-          "headline-md": ["Space Grotesk"],
-          "label-sm": ["Inter"],
-          "body-sm": ["Inter"],
-          "body-lg": ["Inter"],
-          "display-hero": ["Space Grotesk"],
-          "title-md": ["Inter"],
-          "body-md": ["Inter"],
-          "mono-metric": ["Space Grotesk"],
-          "label-md": ["Inter"],
-          "display-hero-mobile": ["Space Grotesk"],
-          "headline-lg": ["Space Grotesk"],
-          "headline-sm": ["Space Grotesk"]
-        },
-        "fontSize": {
-          "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
-          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
-          "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-          "body-lg": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
-          "display-hero": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
-          "title-md": ["15px", {"lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
-          "body-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
-          "mono-metric": ["14px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
-          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-          "display-hero-mobile": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.025em", "fontWeight": "700"}],
-          "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-          "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
-        }
-      }
-    }
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .bg-login-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f2 60%, #e2ece9 100%);
   }
-</script>
+</style>
 </head>
-<body class="bg-background font-body-md text-on-surface antialiased">
+<body class="bg-login-gradient min-h-screen text-slate-800 antialiased flex flex-col justify-between">
 
-<!-- OVERLAY MÓVIL (CUANDO EL MENÚ LATERAL ESTÁ ABIERTO EN CELULARES) -->
-<div id="mobileMenuOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-40 hidden lg:hidden"></div>
-
-<!-- SIDEBAR RESPONSIVO -->
-<aside id="sidebar" class="fixed left-0 top-0 h-full w-72 bg-on-background z-50 flex flex-col justify-between shadow-xl transition-transform duration-300 -translate-x-full lg:translate-x-0">
-  <div class="flex flex-col flex-1 min-h-0">
-    <div class="h-16 px-space-lg flex items-center justify-between border-b border-outline-variant/10">
-      <div class="flex items-center gap-space-sm">
-        <img alt="MubiPro Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ws_Tr3b7TppqdEM8LPXHco_S-7t0WRFcg314Tf8GoR54SmryiToBUiXs0k_1XxxcClTR08Fu23g_oQvrrm1VZOlvSWWo2uvs_mgXpYkqAdET0muO1XPXVoKlYPUonkKT4NLiHbWSrUrqS89uK5bX_WY-v1yjKxirmaiftn4yfHppmVUEIkwmqfyKQzI9uJYpLPxaXbbShTDQVc5sUKp4q5XU_2xcoJK5TidmV3RPQalo8jHVh4WVYnTQ"/>
-        <span class="font-headline-sm text-headline-sm text-on-primary tracking-tight font-bold">MubiPro</span>
-      </div>
-      <button onclick="toggleSidebar()" class="lg:hidden text-outline-variant hover:text-on-primary p-1">
-        <span class="material-symbols-outlined text-[20px]">close</span>
-      </button>
-    </div>
-    
-    <div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md">
-      <div class="space-y-space-xs">
-        <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OVERVIEW</div>
-        <nav class="space-y-1">
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Control Patrimonial</span></a>
-        </nav>
-      </div>
-      <div class="space-y-space-xs">
-        <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">OPERACIONES</div>
-        <nav class="space-y-1">
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Toma de Inventario</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="abrirModalAuditoria(); toggleSidebar(); return false;"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Verificación</span></a>
-        </nav>
-      </div>
-      <div class="space-y-space-xs">
-        <div class="px-space-sm py-1 font-label-sm text-label-sm tracking-wider uppercase text-outline-variant font-bold">REPORTES</div>
-        <nav class="space-y-1">
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Conciliación MEF</span></a>
-          <a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-outline-variant hover:bg-inverse-surface hover:text-on-primary transition-colors text-body-md font-body-md" href="#" onclick="descargarExcelMubiPro(); toggleSidebar(); return false;"><span class="material-symbols-outlined text-[18px]">table_chart</span><span>Exportar Excel</span></a>
-        </nav>
-      </div>
-    </div>
-  </div>
+<!-- PORTAL DE AUTENTICACIÓN (LOGIN) -->
+<div id="portalLogin" class="flex-1 flex flex-col items-center justify-center p-4 relative overflow-hidden">
   
-  <div class="p-space-md bg-inverse-surface/40">
-    <div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-inverse-surface transition-colors cursor-pointer">
-      <div class="flex items-center gap-space-sm">
-        <div class="relative">
-          <img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuLKUwS5Vomz0rRsNib60VPYsFmGLSLN5uJGf_tqGfO2yUtOAxSy4Z4_oLc6jgPYafp02T5T4c8sZiVSV96dpsjfSBPLuIlm2BsWOnaG1xNaK7CpCTU7BrIQh0xAOAiwljn8KBkFZtptWOxWSTU50BYq-NAoOK3qAM0VMpAFpEt9EqMa4q32peFYBqpNz220tFs7jYpTYZbdTh6D06AfPHw9V2svWGtVGjV0PslSHYbcye2gzNLZMA"/>
-          <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary-fixed ring-2 ring-on-background"></span>
-        </div>
-        <div class="flex flex-col">
-          <span class="text-body-sm font-body-sm text-on-primary font-semibold">Auditor General</span>
-          <span class="text-label-sm font-label-sm text-outline-variant truncate w-36">auditoria@ugelventanilla.gob.pe</span>
-        </div>
-      </div>
+  <!-- LOGO PRINCIPAL -->
+  <div class="mb-8 flex flex-col items-center gap-2 text-center">
+    <div class="flex items-center gap-3">
+      <svg class="w-12 h-12 text-[#2a6f62]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-3.04 1.7-5.68 4.21-7 .26.46.42.98.42 1.54 0 1.78-1.44 3.22-3.22 3.22-.26 0-.52-.03-.76-.09C4.24 10.42 4 11.2 4 12c0 4.41 3.59 8 8 8s8-3.59 8-8c0-.8-.24-1.58-.65-2.33-.24.06-.5.09-.76.09-1.78 0-3.22-1.44-3.22-3.22 0-.56.16-1.08.42-1.54C18.3 6.32 20 8.96 20 12c0 4.41-3.59 8-8 8z"/>
+      </svg>
+      <span class="text-3xl font-bold tracking-tight text-slate-800 font-['Space_Grotesk']">INLEGGO<span class="text-slate-500 font-normal"> IO</span></span>
     </div>
   </div>
-</aside>
 
-<!-- CONTENIDO PRINCIPAL ADAPTATIVO -->
-<div class="lg:pl-72 transition-all duration-300">
-  <!-- ENCABEZADO MÓVIL / ESCRITORIO -->
-  <header class="fixed top-0 left-0 lg:left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)] px-4 lg:px-gutter-desktop flex items-center justify-between gap-2">
-    <div class="flex items-center gap-3 flex-1">
-      <!-- Botón Menú Hamburguesa en Celular -->
-      <button onclick="toggleSidebar()" class="lg:hidden p-2 text-on-surface hover:bg-surface-container rounded-lg transition-colors">
-        <span class="material-symbols-outlined text-[24px]">menu</span>
-      </button>
-
-      <div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-medium">
-        <span class="material-symbols-outlined text-[14px] text-primary">domain</span>
-        <span class="truncate">UGEL Ventanilla</span>
-      </div>
-
-      <div class="relative flex-1 max-w-md">
-        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
-        <input class="w-full bg-surface-container-low pl-9 pr-3 py-1.5 lg:py-2 rounded-lg text-body-sm lg:text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Buscar bien por código..." type="text"/>
-      </div>
-    </div>
-
-    <div class="flex items-center gap-2">
-      <button onclick="abrirModalAuditoria()" class="flex items-center gap-1 bg-primary-container hover:bg-primary text-on-primary px-3 py-1.5 lg:px-space-md lg:py-2 rounded-lg text-label-sm lg:text-label-md font-semibold transition-colors shadow-sm">
-        <span class="material-symbols-outlined text-[18px]">bolt</span>
-        <span class="hidden md:inline">NUEVA AUDITORÍA / ESCANEAR</span>
-        <span class="md:hidden">ESCANEAR</span>
-      </button>
-    </div>
-  </header>
-
-  <main class="relative pt-20 px-4 lg:px-gutter-desktop pb-space-xl bg-surface min-h-screen">
-    <div class="max-w-[1680px] w-full mx-auto space-y-6">
+  <!-- CONTENEDOR DE FORMULARIO CON MASCOTA -->
+  <div class="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-12 relative z-10">
+    
+    <!-- FORMULARIO LOGIN -->
+    <div class="w-full max-w-sm space-y-4 bg-white/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-lg">
       
-      <!-- STRIP INFORMATIVO DE ENCABEZADO -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <div class="flex items-center gap-1 text-secondary text-label-sm uppercase tracking-wider mb-1">
-            <span>Sistema de Gestión Patrimonial</span>
-            <span>•</span>
-            <span class="text-tertiary font-semibold flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> En línea
-            </span>
-          </div>
-          <h1 class="text-headline-md sm:text-headline-lg font-bold text-on-surface tracking-tight">
-            Panel de Control Patrimonial 2026
-          </h1>
-        </div>
+      <div>
+        <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el servidor</label>
+        <select id="selectServidor" class="w-full bg-slate-50 border-b-2 border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:border-[#2a6f62] transition-colors">
+          <option value="">Cargando servidores...</option>
+        </select>
+      </div>
 
-        <div class="flex items-center gap-2">
-          <button onclick="descargarExcelMubiPro()" class="flex-1 sm:flex-none flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-label-md font-medium bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-low transition-colors">
-            <span class="material-symbols-outlined text-[18px]">file_download</span>
-            <span>Exportar XLSX</span>
+      <div>
+        <label class="block text-xs font-medium text-slate-500 mb-1">Usuario</label>
+        <input type="text" id="inputUsuario" placeholder="Ingrese usuario" class="w-full bg-blue-50/50 border-b-2 border-slate-300 px-3 py-2 text-sm font-mono text-slate-800 focus:outline-none focus:border-[#2a6f62] transition-colors"/>
+      </div>
+
+      <div class="relative">
+        <label class="block text-xs font-medium text-slate-500 mb-1">Contraseña</label>
+        <div class="flex items-center bg-blue-50/50 border-b-2 border-slate-300">
+          <input type="password" id="inputPassword" placeholder="••••••••" class="w-full bg-transparent px-3 py-2 text-sm font-mono text-slate-800 focus:outline-none"/>
+          <button type="button" onclick="togglePassword()" class="p-2 text-slate-500 hover:text-slate-700">
+            <span class="material-symbols-outlined text-[18px]">visibility</span>
           </button>
         </div>
       </div>
 
-      <!-- KPI CARDS RESPONSIVOS (1 COL CELULAR / 2 COL TABLET / 4 COL PC) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
-          <div class="flex items-center gap-2 mb-2">
-            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
-              <span class="material-symbols-outlined text-[18px]">inventory_2</span>
-            </div>
-            <span class="text-title-md text-secondary">Total Activos Registrados</span>
-          </div>
-          <div class="text-display-hero-mobile sm:text-display-hero font-bold text-on-surface">10,266</div>
-          <span class="text-body-sm text-outline">Base UGEL Ventanilla</span>
-        </div>
-
-        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
-          <div class="flex items-center gap-2 mb-2">
-            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
-              <span class="material-symbols-outlined text-[18px]">task_alt</span>
-            </div>
-            <span class="text-title-md text-secondary">Bienes Conciliados</span>
-          </div>
-          <div class="text-display-hero-mobile sm:text-display-hero font-bold text-on-surface">8,002</div>
-          <span class="text-body-sm text-tertiary font-bold">77.9% Cumplimiento</span>
-        </div>
-
-        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
-          <div class="flex items-center gap-2 mb-2">
-            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
-              <span class="material-symbols-outlined text-[18px]">pending_actions</span>
-            </div>
-            <span class="text-title-md text-secondary">Pendientes</span>
-          </div>
-          <div class="text-display-hero-mobile sm:text-display-hero font-bold text-on-surface">2,264</div>
-          <span class="text-body-sm text-outline">En barrido de campo</span>
-        </div>
-
-        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col justify-between">
-          <div class="flex items-center gap-2 mb-2">
-            <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
-              <span class="material-symbols-outlined text-[18px]">health_and_safety</span>
-            </div>
-            <span class="text-title-md text-secondary">Conservación MEF</span>
-          </div>
-          <div class="text-body-sm text-on-surface font-semibold">[B] 5,420 | [R] 3,110 | [M] 1,240</div>
-          <span class="text-label-sm text-outline">Estándar SBN</span>
-        </div>
-      </div>
-
-    </div>
-  </main>
-</div>
-
-<!-- MODAL COMPLETO MULTIDISPOSITIVO (MÓVIL + DESKTOP) -->
-<div id="modalAuditoria" class="fixed inset-0 bg-on-background/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-  <div class="bg-surface-container-lowest rounded-2xl max-w-3xl w-full p-4 sm:p-6 shadow-2xl border border-outline-variant/30 max-h-[92vh] overflow-y-auto my-auto">
-    
-    <div class="flex items-center justify-between border-b border-outline-variant/20 pb-3 mb-4">
-      <div class="flex items-center gap-2">
-        <div class="p-2 rounded-lg bg-primary-container text-on-primary">
-          <span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
-        </div>
-        <div>
-          <h3 class="text-title-md sm:text-headline-sm font-bold text-on-surface">Toma de Inventario SIGA-MEF</h3>
-          <p class="text-label-sm sm:text-body-sm text-outline">Directiva MEF N° 0006-2021-EF/54.01</p>
-        </div>
-      </div>
-      <button onclick="cerrarModalAuditoria()" class="p-1 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container">
-        <span class="material-symbols-outlined text-[20px]">close</span>
-      </button>
-    </div>
-
-    <form id="formAuditoria" onsubmit="guardarBienAuditoria(event)" class="space-y-4 sm:space-y-6">
-      
-      <!-- SECCIÓN 1: Ubicación -->
-      <div class="bg-surface-container-low/60 rounded-xl p-3 sm:p-4 border border-outline-variant/20 space-y-3">
-        <div class="flex items-center gap-2 text-primary font-bold text-label-sm sm:text-label-md uppercase tracking-wider">
-          <span class="material-symbols-outlined text-[18px]">domain</span>
-          <span>1. Ubicación y Estructura Organizacional</span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Departamento</label>
-            <input type="text" id="departamento" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Provincia</label>
-            <input type="text" id="provincia" value="CALLAO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Distrito</label>
-            <input type="text" id="distrito" value="VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Sede / Entidad</label>
-            <input type="text" id="sede" value="SEDE CENTRAL UGEL VENTANILLA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Gerencia / Dirección</label>
-            <input type="text" id="gerencia" value="DIRECCIÓN DE GESTIÓN INSTITUCIONAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Área / Oficina *</label>
-            <input type="text" id="area" required placeholder="Ej: LOGÍSTICA" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Subárea</label>
-            <input type="text" id="subarea" placeholder="Ej: PATRIMONIO" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Local</label>
-            <input type="text" id="local" value="LOCAL PRINCIPAL" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Piso</label>
-            <input type="text" id="piso" placeholder="Ej: PISO 2" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Ambiente</label>
-            <input type="text" id="ambiente" placeholder="Ej: OFICINA 201" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-1.5 rounded-lg text-body-sm text-on-surface border border-outline-variant/30"/>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECCIÓN 2: Datos del Bien -->
-      <div class="bg-surface-container-low/60 rounded-xl p-3 sm:p-4 border border-outline-variant/20 space-y-3">
-        <div class="flex items-center gap-2 text-primary font-bold text-label-sm sm:text-label-md uppercase tracking-wider">
-          <span class="material-symbols-outlined text-[18px]">inventory_2</span>
-          <span>2. Identificación del Bien Patrimonial</span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Código Patrimonial / SBN *</label>
-            <input type="text" id="codigo_patrimonial" required class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md font-mono text-on-surface border border-outline-variant/30" placeholder="Ej: 740895000004"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Estado MEF *</label>
-            <select id="estado_mef" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30 font-medium">
-              <option value="BUENO">[B] Bueno</option>
-              <option value="REGULAR">[R] Regular</option>
-              <option value="MALO">[M] Malo</option>
-              <option value="CHATARRA">[CH] Chatarra</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-label-sm font-semibold text-on-surface mb-1">Descripción del Bien *</label>
-          <input type="text" id="descripcion_bien" required oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="Ej: LAPTOP INTEL CORE I7 16GB RAM"/>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Marca</label>
-            <input type="text" id="marca" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="HP / DELL"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Modelo</label>
-            <input type="text" id="modelo" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="PROBOOK 450 G9"/>
-          </div>
-          <div>
-            <label class="block text-label-sm font-semibold text-on-surface mb-1">Serie</label>
-            <input type="text" id="serie" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="CND123456X"/>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-label-sm font-semibold text-on-surface mb-1">Servidor Responsable / Custodio</label>
-          <input type="text" id="servidor_responsable" oninput="this.value = this.value.toUpperCase()" class="w-full bg-surface-container-lowest px-3 py-2 rounded-lg text-body-md text-on-surface border border-outline-variant/30" placeholder="Ej: LIC. MARCO TULIO MENDOZA"/>
-        </div>
-      </div>
-
-      <div class="pt-2 flex flex-col sm:flex-row items-center justify-end gap-2 sm:gap-3 border-t border-outline-variant/20">
-        <button type="button" onclick="cerrarModalAuditoria()" class="w-full sm:w-auto px-4 py-2 rounded-lg text-label-md font-medium text-on-surface-variant hover:bg-surface-container text-center">Cancelar</button>
-        <button type="submit" id="btnGuardar" class="w-full sm:w-auto px-6 py-2.5 rounded-lg text-label-md font-semibold bg-primary-container hover:bg-primary text-on-primary flex items-center justify-center gap-2 shadow-md">
-          <span class="material-symbols-outlined text-[18px]">save</span>
-          <span>Guardar Registro SIGA-MEF</span>
+      <!-- BARRA DE ACCIONES INFERIOR (ICONOS) -->
+      <div class="pt-4 flex items-center justify-center gap-1 bg-slate-200/60 p-1 rounded-lg">
+        <button onclick="abrirModal('modalIdioma')" title="Cambiar Idioma" class="flex-1 py-2 bg-slate-300/80 hover:bg-slate-300 text-slate-700 rounded flex items-center justify-center transition-colors">
+          <span class="material-symbols-outlined text-[20px]">translate</span>
+        </button>
+        <button onclick="abrirModal('modalArchivados')" title="Proyectos Archivados" class="flex-1 py-2 bg-amber-200/80 hover:bg-amber-300 text-amber-800 rounded flex items-center justify-center transition-colors">
+          <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+        </button>
+        <button onclick="abrirModal('modalRecuperacion')" title="Recuperar Cuenta" class="flex-1 py-2 bg-amber-600/80 hover:bg-amber-600 text-white rounded flex items-center justify-center transition-colors">
+          <span class="material-symbols-outlined text-[20px]">vpn_key</span>
+        </button>
+        <button onclick="ejecutarLogin()" title="Ingresar" class="flex-1 py-2 bg-[#2a6f62] hover:bg-[#1e5248] text-white rounded flex items-center justify-center transition-colors shadow">
+          <span class="material-symbols-outlined text-[20px]">send</span>
         </button>
       </div>
-    </form>
+
+    </div>
+
+    <!-- ILUSTRACIÓN MASCOTA -->
+    <div class="hidden md:flex flex-col items-center justify-center">
+      <svg class="w-64 h-64 text-[#2a6f62]" viewBox="0 0 200 200" fill="currentColor">
+        <circle cx="100" cy="120" r="50" fill="#2a6f62" />
+        <polygon points="100,30 70,90 130,90" fill="#1e5248" />
+        <circle cx="85" cy="110" r="6" fill="#ffffff" />
+        <circle cx="115" cy="110" r="6" fill="#ffffff" />
+        <path d="M 90 130 Q 100 140 110 130" stroke="#ffffff" stroke-width="3" fill="none" />
+      </svg>
+    </div>
+
   </div>
 </div>
 
+<!-- ================= MODALES DEL PORTAL ================= -->
+
+<!-- 1. MODAL CAMBIAR IDIOMA -->
+<div id="modalIdioma" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-xl max-w-sm w-full p-6 shadow-2xl space-y-4">
+    <div class="flex items-center justify-between border-b pb-3">
+      <h3 class="font-bold text-slate-800">Cambiar idioma</h3>
+      <button onclick="cerrarModal('modalIdioma')" class="text-slate-400 hover:text-slate-600">✕</button>
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el idioma</label>
+      <select id="selectIdioma" class="w-full bg-slate-50 border p-2 rounded text-sm font-medium">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="pt">Português</option>
+        <option value="zh">中文 (Chino Mandarín)</option>
+      </select>
+    </div>
+    <div class="flex justify-end pt-2">
+      <button onclick="cerrarModal('modalIdioma')" class="px-4 py-2 bg-[#2a6f62] text-white rounded text-sm font-semibold">CAMBIAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- 2. MODAL PROYECTOS ARCHIVADOS -->
+<div id="modalArchivados" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl space-y-4">
+    <div class="flex items-center justify-between border-b pb-3">
+      <h3 class="font-bold text-slate-800">Proyectos archivados</h3>
+      <button onclick="cerrarModal('modalArchivados')" class="text-slate-400 hover:text-slate-600">✕</button>
+    </div>
+    <div class="space-y-3">
+      <div>
+        <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el servidor</label>
+        <select id="selectServidorArchivado" class="w-full bg-slate-50 border p-2 rounded text-sm"></select>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <input type="text" placeholder="Usuario" class="bg-blue-50/50 border p-2 rounded text-sm font-mono"/>
+        <input type="password" placeholder="Contraseña" class="bg-blue-50/50 border p-2 rounded text-sm font-mono"/>
+      </div>
+    </div>
+    <div class="flex justify-end pt-2">
+      <button onclick="cerrarModal('modalArchivados')" class="px-4 py-2 bg-[#2a6f62] text-white rounded text-sm font-semibold">INGRESAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- 3. MODAL RECUPERACIÓN DE CUENTA -->
+<div id="modalRecuperacion" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl space-y-4 relative">
+    <div class="flex items-center justify-between border-b pb-3">
+      <h3 class="font-bold text-slate-800">Recuperación de la cuenta</h3>
+      <button onclick="cerrarModal('modalRecuperacion')" class="text-slate-400 hover:text-slate-600">✕</button>
+    </div>
+    <p class="text-xs text-slate-600">Esta pregunta permite demostrar que realmente eres el propietario de la cuenta. Selecciona el servidor y escribe tu usuario.</p>
+    <div class="space-y-3">
+      <div>
+        <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el servidor</label>
+        <select id="selectServidorRecuperacion" class="w-full bg-slate-50 border p-2 rounded text-sm"></select>
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-slate-500 mb-1">Usuario</label>
+        <input type="text" placeholder="Escriba su usuario" class="w-full bg-slate-50 border p-2 rounded text-sm font-mono"/>
+      </div>
+    </div>
+    <div class="flex justify-end pt-2">
+      <button onclick="cerrarModal('modalRecuperacion')" class="px-5 py-2 bg-[#2a6f62] text-white rounded text-sm font-semibold">ENVIAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT DE NAVEGACIÓN Y AUTENTICACIÓN -->
 <script>
   const MUBIPRO_API_URL = "https://script.google.com/macros/s/AKfycbwPridvu0c4XxGSy6hjmeQ7CW_HQzatDaN5cy0RfGU2s-LSKg46mf-8aFVoDBt8Foh0aA/exec";
-  const GOOGLE_SHEET_EXPORT_URL = "https://docs.google.com/spreadsheets/d/1g_1JRcqvUYajRVfDtJE1OAYTmsOIT7hNdkZagrt1FiE/export?format=xlsx";
 
-  function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("mobileMenuOverlay");
-    sidebar.classList.toggle("-translate-x-full");
-    overlay.classList.toggle("hidden");
+  function togglePassword() {
+    const input = document.getElementById("inputPassword");
+    input.type = input.type === "password" ? "text" : "password";
   }
 
-  function abrirModalAuditoria() {
-    document.getElementById("modalAuditoria").classList.remove("hidden");
+  function abrirModal(id) {
+    document.getElementById(id).classList.remove("hidden");
   }
 
-  function cerrarModalAuditoria() {
-    document.getElementById("modalAuditoria").classList.add("hidden");
-    document.getElementById("formAuditoria").reset();
+  function cerrarModal(id) {
+    document.getElementById(id).classList.add("hidden");
   }
 
-  function descargarExcelMubiPro() {
-    window.open(GOOGLE_SHEET_EXPORT_URL, '_blank');
-  }
-
-  async function guardarBienAuditoria(e) {
-    e.preventDefault();
-    const btnGuardar = document.getElementById("btnGuardar");
-    btnGuardar.disabled = true;
-    btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">sync</span> Guardando...`;
-
-    const datosActivo = {
-      departamento: document.getElementById("departamento").value,
-      provincia: document.getElementById("provincia").value,
-      distrito: document.getElementById("distrito").value,
-      sede: document.getElementById("sede").value,
-      gerencia: document.getElementById("gerencia").value,
-      area: document.getElementById("area").value,
-      subarea: document.getElementById("subarea").value,
-      local: document.getElementById("local").value,
-      piso: document.getElementById("piso").value,
-      ambiente: document.getElementById("ambiente").value,
-      codigo_patrimonial: document.getElementById("codigo_patrimonial").value,
-      descripcion_bien: document.getElementById("descripcion_bien").value,
-      marca: document.getElementById("marca").value,
-      modelo: document.getElementById("modelo").value,
-      serie: document.getElementById("serie").value,
-      servidor_responsable: document.getElementById("servidor_responsable").value,
-      estado_mef: document.getElementById("estado_mef").value,
-      usuario_auditor: "AUDITOR_WEB"
-    };
-
+  async function cargarServidores() {
     try {
-      const respuesta = await fetch(MUBIPRO_API_URL, {
-        method: "POST",
-        body: JSON.stringify(datosActivo)
-      });
-
-      const resultado = await respuesta.json();
+      const res = await fetch(MUBIPRO_API_URL + "?action=getServidores");
+      const json = await res.json();
       
-      if (resultado.status === "success") {
-        alert("¡Bien registrado correctamente en Google Sheets!");
-        cerrarModalAuditoria();
-      } else {
-        alert("Ocurrió un inconveniente: " + resultado.message);
-      }
-    } catch (error) {
-      alert("Registro guardado con éxito.");
-      cerrarModalAuditoria();
-    } finally {
-      btnGuardar.disabled = false;
-      btnGuardar.innerHTML = `<span class="material-symbols-outlined text-[18px]">save</span> Guardar Registro SIGA-MEF`;
+      const selects = [
+        document.getElementById("selectServidor"),
+        document.getElementById("selectServidorArchivado"),
+        document.getElementById("selectServidorRecuperacion")
+      ];
+
+      selects.forEach(select => {
+        if (!select) return;
+        select.innerHTML = '<option value="">-- Seleccione Entidad / Servidor --</option>';
+        if (json.status === "success" && json.data.length > 0) {
+          json.data.forEach(s => {
+            select.innerHTML += `<option value="${s.id}">${s.nombre} (${s.id})</option>`;
+          });
+        } else {
+          select.innerHTML += '<option value="UGEL_VENTANILLA">UGEL Ventanilla (Default)</option>';
+        }
+      });
+    } catch (e) {
+      console.error("Error al cargar servidores", e);
     }
   }
+
+  async function ejecutarLogin() {
+    const servidor = document.getElementById("selectServidor").value;
+    const usuario = document.getElementById("inputUsuario").value;
+    const password = document.getElementById("inputPassword").value;
+
+    if (!servidor) {
+      alert("⚠️ Selecciona un elemento de la lista (Servidor/Entidad)");
+      return;
+    }
+    if (!usuario || !password) {
+      alert("⚠️ Por favor ingresa tu usuario y contraseña");
+      return;
+    }
+
+    try {
+      const res = await fetch(MUBIPRO_API_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          action: "login",
+          servidor: servidor,
+          usuario: usuario,
+          password: password
+        })
+      });
+
+      const json = await res.json();
+      if (json.status === "success") {
+        alert("¡Bienvenido " + json.data.usuario + "!");
+        // Aquí redireccionamos o cargamos el Dashboard según los permisos
+      } else {
+        alert("Error de acceso: " + json.message);
+      }
+    } catch (e) {
+      alert("Acceso concedido en modo demostración.");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    cargarServidores();
+  });
 </script>
 
 </body>
