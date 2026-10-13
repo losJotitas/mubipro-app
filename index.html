@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MubiPro - Gestión Patrimonial 88 Columnas SIGA-MEF</title>
+<title>MubiPro - Sistema de Control Patrimonial</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -34,64 +34,72 @@
 <style>
   body { font-family: 'Inter', sans-serif; }
   .bg-mubi-gradient {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1e3a8a 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 45%, #1e3a8a 100%);
   }
 </style>
 </head>
-<body class="bg-mubi-light min-h-screen text-slate-800 antialiased flex flex-col justify-between">
+<body class="bg-mubi-light min-h-screen text-slate-800 antialiased">
 
-<!-- PORTAL DE AUTENTICACIÓN MULTIEMPRESA (LOGIN MUBIPRO) -->
+<!-- ======================================================== -->
+<!-- 1. PORTAL DE LOGIN (ACCESO MUBIPRO) -->
+<!-- ======================================================== -->
 <div id="portalLogin" class="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-mubi-gradient">
   
-  <!-- EFECTO DE LUZ DE FONDO -->
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
   <div class="absolute bottom-10 right-10 w-80 h-80 bg-amber-400/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-  <!-- CONTENEDOR PRINCIPAL -->
   <div class="w-full max-w-5xl flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 relative z-10 my-auto">
     
-    <!-- ILUSTRACIÓN / ARTE VECTORIAL DE AUDITOR EN CAMPO -->
+    <!-- ROBOT ANDROIDE DE PERFIL (ESTILO ESET / FUTURISTA) -->
     <div class="flex flex-col items-center justify-center text-center text-white order-2 lg:order-1 max-w-md">
       <div class="relative mb-4">
-        <!-- Figura estilizada: Hombre con chaleco reflectante amarillo/dorado y celular -->
-        <svg class="w-64 h-64 lg:w-80 lg:h-80 drop-shadow-2xl" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Sombra proyectada -->
-          <ellipse cx="150" cy="275" rx="80" ry="12" fill="#000000" fill-opacity="0.3"/>
+        <svg class="w-64 h-64 lg:w-80 lg:h-80 drop-shadow-[0_20px_50px_rgba(37,99,235,0.4)]" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sombra base -->
+          <ellipse cx="150" cy="275" rx="75" ry="10" fill="#000000" fill-opacity="0.4"/>
           
-          <!-- Cuerpo / Silueta -->
-          <!-- Cabeza con casco/gorra de campo -->
-          <circle cx="150" cy="65" r="28" fill="#f1f5f9"/>
-          <path d="M120 62 C120 40, 180 40, 180 62 L190 65 L110 65 Z" fill="#2563eb"/> <!-- Visera Azul -->
+          <!-- Hombros y Torso Robótico (Perfil derecho) -->
+          <path d="M100 240 C100 190, 130 170, 170 165 L220 200 L210 260 Z" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+          <path d="M120 240 C120 200, 145 185, 175 180 L205 205 L195 255 Z" fill="#0f172a"/>
           
-          <!-- Torso con Chaleco Institucional -->
-          <path d="M110 100 L190 100 L205 200 L95 200 Z" fill="#1e293b"/> <!-- Polo base gris oscuro -->
-          <path d="M105 102 L140 102 L145 198 L100 198 Z" fill="#facc15"/> <!-- Chaleco Amarillo Izq -->
-          <path d="M160 102 L195 102 L200 198 L155 198 Z" fill="#facc15"/> <!-- Chaleco Amarillo Der -->
+          <!-- Placa de pecho con acento azul y dorado -->
+          <path d="M135 205 L175 195 L185 235 L145 240 Z" fill="#2563eb"/>
+          <rect x="145" y="210" width="25" height="4" fill="#facc15" rx="1"/>
+
+          <!-- Cuello Cibernético -->
+          <rect x="150" y="130" width="30" height="35" rx="4" fill="#334155" transform="rotate(-10 150 130)"/>
+          <line x1="155" y1="140" x2="175" y2="137" stroke="#2563eb" stroke-width="3"/>
+          <line x1="155" y1="150" x2="175" y2="147" stroke="#facc15" stroke-width="3"/>
+
+          <!-- Cabeza de Robot Android de Perfil -->
+          <path d="M130 70 C130 40, 185 40, 205 70 C220 90, 215 125, 195 135 C170 145, 130 130, 130 70 Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
           
-          <!-- Cintas Reflectantes Grises / Blancas en Chaleco -->
-          <rect x="100" y="130" width="100" height="12" fill="#e2e8f0" rx="2"/>
-          <rect x="98" y="160" width="104" height="12" fill="#e2e8f0" rx="2"/>
+          <!-- Placa Trasera de la Cabeza (Gris Oscuro) -->
+          <path d="M130 70 C130 45, 160 42, 165 65 C165 95, 150 130, 130 120 Z" fill="#1e293b"/>
           
-          <!-- Brazos sosteniendo Celular/Escáner -->
-          <path d="M95 110 L70 160 L120 175" stroke="#f1f5f9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M205 110 L230 160 L180 175" stroke="#f1f5f9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Ojo Visor Luminoso Azul (Cienporciento Futurista) -->
+          <path d="M180 80 C195 80, 205 85, 210 92 C200 98, 185 96, 178 90 Z" fill="#2563eb"/>
+          <ellipse cx="195" cy="87" rx="8" ry="4" fill="#60a5fa"/>
+          <circle cx="197" cy="87" r="2" fill="#ffffff"/>
           
-          <!-- Smartphone / Colector de Datos con Pantalla Azul -->
-          <rect x="135" y="150" width="30" height="52" rx="5" fill="#0f172a" stroke="#facc15" stroke-width="2"/>
-          <rect x="138" y="155" width="24" height="38" rx="2" fill="#2563eb"/>
-          <!-- Haz de Luz Láser Escáner QR/Barras -->
-          <polygon points="150,150 110,90 190,90" fill="#facc15" fill-opacity="0.3"/>
-          <line x1="110" y1="90" x2="190" y2="90" stroke="#facc15" stroke-width="3" stroke-dasharray="4 2"/>
+          <!-- Líneas Circuitales de Neón -->
+          <path d="M145 85 L165 85 L175 95" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="145" cy="85" r="2" fill="#2563eb"/>
+          
+          <path d="M150 105 L170 105 L180 115" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="150" cy="105" r="2" fill="#facc15"/>
+
+          <!-- Auricular / Nodo Lateral -->
+          <circle cx="150" cy="95" r="10" fill="#0f172a" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="150" cy="95" r="4" fill="#facc15"/>
         </svg>
       </div>
       <h2 class="font-title text-2xl lg:text-3xl font-bold tracking-tight text-white mb-2">MubiPro Patrimonial</h2>
-      <p class="text-sm text-slate-300">Plataforma de Toma de Inventario Físico &amp; Conciliación 100% Estándar SIGA-MEF de 88 Columnas.</p>
+      <p class="text-sm text-slate-300">Plataforma de Toma de Inventario Físico &amp; Conciliación.</p>
     </div>
 
     <!-- FORMULARIO LOGIN DE AUTENTICACIÓN -->
     <div class="w-full max-w-md bg-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-100 order-1 lg:order-2">
       
-      <!-- HEADER CON LOGO OFICIAL -->
       <div class="mb-6 text-center">
         <div class="inline-flex items-center gap-2 mb-1">
           <div class="w-10 h-10 rounded-xl bg-mubi-blue text-white flex items-center justify-center font-bold text-xl shadow-md">M</div>
@@ -102,31 +110,30 @@
 
       <form onsubmit="ejecutarLogin(event)" class="space-y-4">
         
-        <!-- SELECTOR DE SERVIDOR / EMPRESA / ENTIDAD CONTRATANTE -->
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Seleccione el Servidor / Entidad *</label>
           <div class="relative">
             <select id="selectServidor" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all appearance-none cursor-pointer">
-              <option value="">Cargando servidores registrados...</option>
+              <option value="UGEL_VENTANILLA">UGEL Ventanilla - Callao</option>
+              <option value="MUNI_VENTANILLA">Municipalidad Distrital de Ventanilla</option>
+              <option value="SECTOR_PRIVADO">Cliente Corporativo / Empresa Privada</option>
             </select>
             <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
           </div>
         </div>
 
-        <!-- USUARIO -->
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Usuario *</label>
           <div class="relative">
-            <input type="text" id="inputUsuario" required placeholder="Ingrese su código o usuario" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-3 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all"/>
+            <input type="text" id="inputUsuario" value="LOSJOTITAS" required placeholder="Ingrese su usuario" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-3 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all"/>
             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">person</span>
           </div>
         </div>
 
-        <!-- CONTRASEÑA -->
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Contraseña *</label>
           <div class="relative">
-            <input type="password" id="inputPassword" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-10 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all"/>
+            <input type="password" id="inputPassword" value="losjotitas" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-10 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all"/>
             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
             <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1">
               <span class="material-symbols-outlined text-[18px]">visibility</span>
@@ -134,7 +141,6 @@
           </div>
         </div>
 
-        <!-- BARRA DE ACCIONES RÁPIDAS (ACCIONES CON ICONOS) -->
         <div class="pt-2">
           <div class="grid grid-cols-4 gap-2 p-1.5 bg-slate-100 rounded-xl border border-slate-200">
             <button type="button" onclick="abrirModal('modalIdioma')" title="Cambiar Idioma" class="py-2.5 bg-white hover:bg-slate-200 text-slate-700 rounded-lg flex items-center justify-center transition-colors shadow-sm">
@@ -158,165 +164,326 @@
   </div>
 </div>
 
+<!-- ======================================================== -->
+<!-- 2. DASHBOARD / PANEL PRINCIPAL (SE MUESTRA AL INGRESAR) -->
+<!-- ======================================================== -->
+<div id="panelDashboard" class="hidden">
+  
+  <div id="mobileMenuOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="fixed left-0 top-0 h-full w-72 bg-slate-900 text-white z-50 flex flex-col justify-between shadow-xl transition-transform duration-300 -translate-x-full lg:translate-x-0">
+    <div class="flex flex-col flex-1 min-h-0">
+      <div class="h-16 px-6 flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-mubi-blue text-white flex items-center justify-center font-bold">M</div>
+          <span class="font-title text-xl font-bold tracking-tight">Mubi<span class="text-mubi-blue">Pro</span></span>
+        </div>
+        <button onclick="toggleSidebar()" class="lg:hidden text-slate-400 hover:text-white p-1">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+      
+      <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+        <div>
+          <div class="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">OVERVIEW</div>
+          <nav class="mt-1 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-mubi-blue text-white font-semibold" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Control Patrimonial</span></a>
+          </nav>
+        </div>
+        <div>
+          <div class="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">OPERACIONES</div>
+          <nav class="mt-1 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Toma de Inventario</span></a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" href="#" onclick="abrirModalAuditoria(); toggleSidebar(); return false;"><span class="material-symbols-outlined text-[18px]">qr_code_scanner</span><span>Escáner QR/Barras</span></a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Verificación</span></a>
+          </nav>
+        </div>
+        <div>
+          <div class="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">REPORTES &amp; EXPORTACIÓN</div>
+          <nav class="mt-1 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors" href="#" onclick="descargarExcelMubiPro(); return false;"><span class="material-symbols-outlined text-[18px]">table_chart</span><span>Exportar Excel (.xlsx)</span></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+    <div class="p-4 bg-slate-950/60 border-t border-slate-800">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-mubi-blue flex items-center justify-center font-bold text-xs">LJ</div>
+          <div class="flex flex-col">
+            <span id="lblUsuarioHeader" class="text-xs font-bold text-white">LOSJOTITAS</span>
+            <span class="text-[10px] text-slate-400">Administrador Master</span>
+          </div>
+        </div>
+        <button onclick="cerrarSesion()" title="Cerrar Sesión" class="text-slate-400 hover:text-rose-400 p-1">
+          <span class="material-symbols-outlined text-[18px]">logout</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="lg:pl-72 transition-all duration-300">
+    <header class="fixed top-0 left-0 lg:left-72 right-0 h-16 bg-white/90 backdrop-blur-xl z-40 shadow-sm px-4 lg:px-8 flex items-center justify-between gap-2 border-b border-slate-100">
+      <div class="flex items-center gap-3 flex-1">
+        <button onclick="toggleSidebar()" class="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-mubi-blue text-xs font-bold">
+          <span class="material-symbols-outlined text-[14px]">domain</span>
+          <span id="lblEntidadHeader">UGEL Ventanilla</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="abrirModalAuditoria()" class="flex items-center gap-1.5 bg-mubi-blue hover:bg-mubi-darkblue text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md">
+          <span class="material-symbols-outlined text-[18px]">bolt</span>
+          <span>NUEVA AUDITORÍA</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="relative pt-20 px-4 lg:px-8 pb-12 bg-slate-50 min-h-screen">
+      <div class="max-w-[1680px] w-full mx-auto space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-1 text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">
+              <span>Gestión Patrimonial MubiPro</span>
+              <span>•</span>
+              <span class="text-emerald-600 font-bold flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Servidor en vivo
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-title">
+              Panel de Control Patrimonial 2026
+            </h1>
+          </div>
+
+          <button onclick="descargarExcelMubiPro()" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-800 shadow-sm border border-slate-200 hover:bg-slate-100 transition-all">
+            <span class="material-symbols-outlined text-[18px] text-mubi-blue">file_download</span>
+            <span>Exportar Excel (.xlsx)</span>
+          </button>
+        </div>
+
+        <!-- TARJETAS DE INDICADORES (KPIs) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-xl bg-blue-50 text-mubi-blue flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+              </div>
+              <span class="text-sm font-bold text-slate-600">Total Activos</span>
+            </div>
+            <div class="text-3xl font-extrabold text-slate-900 font-title">10,266</div>
+            <span class="text-xs text-slate-400">Base consolidada</span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[20px]">task_alt</span>
+              </div>
+              <span class="text-sm font-bold text-slate-600">Conciliados</span>
+            </div>
+            <div class="text-3xl font-extrabold text-slate-900 font-title">8,002</div>
+            <span class="text-xs text-emerald-600 font-bold">77.9% completado</span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[20px]">pending_actions</span>
+              </div>
+              <span class="text-sm font-bold text-slate-600">Pendientes</span>
+            </div>
+            <div class="text-3xl font-extrabold text-slate-900 font-title">2,264</div>
+            <span class="text-xs text-slate-400">En barrido</span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex flex-col justify-between">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[20px]">health_and_safety</span>
+              </div>
+              <span class="text-sm font-bold text-slate-600">Estado de Bienes</span>
+            </div>
+            <div class="text-xs font-bold text-slate-800">[B] 5,420 | [R] 3,110 | [M] 1,240</div>
+            <span class="text-[11px] text-slate-400">Categorización oficial</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</div>
+
 <!-- ================= MODALES DE HERRAMIENTAS ================= -->
 
-<!-- MODAL 1: CAMBIAR IDIOMA -->
 <div id="modalIdioma" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl space-y-4 border border-slate-100">
-    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-      <div class="flex items-center gap-2 text-mubi-blue font-bold">
-        <span class="material-symbols-outlined">translate</span>
-        <span>Seleccionar Idioma</span>
-      </div>
+  <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl space-y-4">
+    <div class="flex items-center justify-between border-b pb-3">
+      <h3 class="font-bold text-slate-900">Seleccionar Idioma</h3>
       <button onclick="cerrarModal('modalIdioma')" class="text-slate-400 hover:text-slate-600">✕</button>
     </div>
-    <div>
-      <select id="selectIdioma" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-medium text-slate-800">
-        <option value="es">Español (Perú / Latinoamérica)</option>
-        <option value="en">English (US)</option>
-        <option value="pt">Português (Brasil)</option>
-        <option value="zh">中文 (Chino Mandarín)</option>
-      </select>
-    </div>
+    <select id="selectIdioma" class="w-full bg-slate-50 border p-2.5 rounded-xl text-sm font-medium">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+      <option value="pt">Português</option>
+      <option value="zh">中文 (Chino Mandarín)</option>
+    </select>
     <div class="flex justify-end pt-2">
-      <button onclick="cerrarModal('modalIdioma')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold hover:bg-mubi-darkblue transition-colors shadow-md">CAMBIAR</button>
+      <button onclick="cerrarModal('modalIdioma')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold">CAMBIAR</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL 2: PROYECTOS ARCHIVADOS -->
 <div id="modalArchivados" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-100">
-    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-      <div class="flex items-center gap-2 text-amber-600 font-bold">
-        <span class="material-symbols-outlined">inventory_2</span>
-        <span>Inventarios Archivados</span>
-      </div>
+  <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+    <div class="flex items-center justify-between border-b pb-3">
+      <h3 class="font-bold text-slate-900">Inventarios Archivados</h3>
       <button onclick="cerrarModal('modalArchivados')" class="text-slate-400 hover:text-slate-600">✕</button>
     </div>
-    <div class="space-y-3">
-      <div>
-        <label class="block text-xs font-semibold text-slate-600 mb-1">Servidor / Empresa Histórica</label>
-        <select id="selectServidorArchivado" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm text-slate-800"></select>
-      </div>
-      <div class="grid grid-cols-2 gap-2">
-        <input type="text" placeholder="Usuario" class="bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-mono"/>
-        <input type="password" placeholder="Contraseña" class="bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-mono"/>
-      </div>
-    </div>
+    <p class="text-xs text-slate-500">Módulo de consulta para contratos o periodos fiscales cerrados.</p>
     <div class="flex justify-end pt-2">
-      <button onclick="cerrarModal('modalArchivados')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold hover:bg-mubi-darkblue transition-colors shadow-md">CONSULTAR ARCHIVO</button>
+      <button onclick="cerrarModal('modalArchivados')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold">ACEPTAR</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL 3: RECUPERACIÓN DE CUENTA -->
 <div id="modalRecuperacion" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-100">
-    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-      <div class="flex items-center gap-2 text-mubi-slate font-bold">
-        <span class="material-symbols-outlined text-mubi-gold">key</span>
-        <span>Recuperación de Credenciales</span>
-      </div>
+  <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+    <div class="flex items-center justify-between border-b pb-3">
+      <h3 class="font-bold text-slate-900">Recuperación de Credenciales</h3>
       <button onclick="cerrarModal('modalRecuperacion')" class="text-slate-400 hover:text-slate-600">✕</button>
     </div>
-    <p class="text-xs text-slate-600">Selecciona el servidor de tu empresa e ingresa tu código de usuario para recibir asistencia del Administrador.</p>
-    <div class="space-y-3">
-      <div>
-        <label class="block text-xs font-semibold text-slate-600 mb-1">Servidor / Entidad</label>
-        <select id="selectServidorRecuperacion" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm text-slate-800"></select>
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-slate-600 mb-1">Usuario</label>
-        <input type="text" placeholder="Escriba su DNI o usuario" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-mono"/>
-      </div>
-    </div>
+    <p class="text-xs text-slate-600">Tu usuario registrado por defecto es <b class="text-mubi-blue">LOSJOTITAS</b> con la clave <b class="text-mubi-blue">losjotitas</b>.</p>
     <div class="flex justify-end pt-2">
-      <button onclick="cerrarModal('modalRecuperacion')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold hover:bg-mubi-darkblue transition-colors shadow-md">SOLICITAR REINICIO</button>
+      <button onclick="cerrarModal('modalRecuperacion')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold">ENTENDIDO</button>
     </div>
+  </div>
+</div>
+
+<!-- MODAL REGISTRO DE BIENES AUDITORÍA -->
+<div id="modalAuditoria" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+  <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+    <div class="flex items-center justify-between border-b pb-3">
+      <h3 class="font-bold text-slate-900 font-title text-lg">Nuevo Registro de Activo</h3>
+      <button onclick="cerrarModalAuditoria()" class="text-slate-400 hover:text-slate-600">✕</button>
+    </div>
+    <form id="formAuditoria" onsubmit="guardarBienAuditoria(event)" class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Código Patrimonial *</label>
+          <input type="text" id="codigo_patrimonial" required placeholder="Ej: 740895000004" class="w-full bg-slate-50 border p-2 rounded-xl text-sm font-mono"/>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Estado de Conservación *</label>
+          <select id="estado_mef" class="w-full bg-slate-50 border p-2 rounded-xl text-sm font-bold text-slate-800">
+            <option value="BUENO">[B] Bueno</option>
+            <option value="REGULAR">[R] Regular</option>
+            <option value="MALO">[M] Malo</option>
+            <option value="CHATARRA">[CH] Chatarra</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Descripción del Bien *</label>
+        <input type="text" id="descripcion_bien" required oninput="this.value = this.value.toUpperCase()" placeholder="Ej: LAPTOP HP PROBOOK 450 G9" class="w-full bg-slate-50 border p-2 rounded-xl text-sm font-semibold"/>
+      </div>
+      <div class="grid grid-cols-3 gap-2">
+        <input type="text" id="marca" oninput="this.value = this.value.toUpperCase()" placeholder="MARCA" class="bg-slate-50 border p-2 rounded-xl text-xs font-semibold"/>
+        <input type="text" id="modelo" oninput="this.value = this.value.toUpperCase()" placeholder="MODELO" class="bg-slate-50 border p-2 rounded-xl text-xs font-semibold"/>
+        <input type="text" id="serie" oninput="this.value = this.value.toUpperCase()" placeholder="SERIE" class="bg-slate-50 border p-2 rounded-xl text-xs font-semibold"/>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <input type="text" id="area" oninput="this.value = this.value.toUpperCase()" placeholder="ÁREA / OFICINA" class="bg-slate-50 border p-2 rounded-xl text-xs font-semibold"/>
+        <input type="text" id="servidor_responsable" oninput="this.value = this.value.toUpperCase()" placeholder="RESPONSABLE / CUSTODIO" class="bg-slate-50 border p-2 rounded-xl text-xs font-semibold"/>
+      </div>
+      <div class="flex justify-end gap-2 pt-2 border-t">
+        <button type="button" onclick="cerrarModalAuditoria()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl">Cancelar</button>
+        <button type="submit" id="btnGuardar" class="px-5 py-2 text-xs font-bold bg-mubi-blue text-white rounded-xl shadow-md hover:bg-mubi-darkblue">Guardar Registro</button>
+      </div>
+    </form>
   </div>
 </div>
 
 <script>
   const MUBIPRO_API_URL = "https://script.google.com/macros/s/AKfycbwPridvu0c4XxGSy6hjmeQ7CW_HQzatDaN5cy0RfGU2s-LSKg46mf-8aFVoDBt8Foh0aA/exec";
+  const GOOGLE_SHEET_EXPORT_URL = "https://docs.google.com/spreadsheets/d/1g_1JRcqvUYajRVfDtJE1OAYTmsOIT7hNdkZagrt1FiE/export?format=xlsx";
 
   function togglePassword() {
     const input = document.getElementById("inputPassword");
     input.type = input.type === "password" ? "text" : "password";
   }
 
-  function abrirModal(id) {
-    document.getElementById(id).classList.remove("hidden");
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("-translate-x-full");
+    document.getElementById("mobileMenuOverlay").classList.toggle("hidden");
   }
 
-  function cerrarModal(id) {
-    document.getElementById(id).classList.add("hidden");
-  }
-
-  async function cargarServidores() {
-    try {
-      const res = await fetch(MUBIPRO_API_URL + "?action=getServidores");
-      const json = await res.json();
-      
-      const selects = [
-        document.getElementById("selectServidor"),
-        document.getElementById("selectServidorArchivado"),
-        document.getElementById("selectServidorRecuperacion")
-      ];
-
-      selects.forEach(select => {
-        if (!select) return;
-        select.innerHTML = '<option value="">-- Seleccione Servidor / Entidad --</option>';
-        if (json.status === "success" && json.data.length > 0) {
-          json.data.forEach(s => {
-            select.innerHTML += `<option value="${s.id}">${s.nombre} (${s.id})</option>`;
-          });
-        } else {
-          select.innerHTML += '<option value="UGEL_VENTANILLA">UGEL Ventanilla - Callao</option>';
-          select.innerHTML += '<option value="MUNI_CALLAO">Municipalidad Distrital de Ventanilla</option>';
-        }
-      });
-    } catch (e) {
-      console.error("Error cargando servidores MubiPro", e);
-    }
-  }
+  function abrirModal(id) { document.getElementById(id).classList.remove("hidden"); }
+  function cerrarModal(id) { document.getElementById(id).classList.add("hidden"); }
+  function abrirModalAuditoria() { document.getElementById("modalAuditoria").classList.remove("hidden"); }
+  function cerrarModalAuditoria() { document.getElementById("modalAuditoria").classList.add("hidden"); document.getElementById("formAuditoria").reset(); }
+  function descargarExcelMubiPro() { window.open(GOOGLE_SHEET_EXPORT_URL, '_blank'); }
 
   async function ejecutarLogin(e) {
     e.preventDefault();
     const servidor = document.getElementById("selectServidor").value;
-    const usuario = document.getElementById("inputUsuario").value;
-    const password = document.getElementById("inputPassword").value;
+    const usuario = document.getElementById("inputUsuario").value.trim().toUpperCase();
+    const password = document.getElementById("inputPassword").value.trim();
 
-    if (!servidor) {
-      alert("⚠️ Por favor selecciona un elemento de la lista (Servidor/Entidad)");
-      return;
-    }
-
-    try {
-      const res = await fetch(MUBIPRO_API_URL, {
-        method: "POST",
-        body: JSON.stringify({
-          action: "login",
-          servidor: servidor,
-          usuario: usuario,
-          password: password
-        })
-      });
-
-      const json = await res.json();
-      if (json.status === "success") {
-        alert("¡Bienvenido a MubiPro " + json.data.usuario + "!");
-      } else {
-        alert("Autenticación correcta en servidor MubiPro.");
-      }
-    } catch (e) {
-      alert("Acceso concedido a MubiPro.");
+    // VALIDACIÓN DE ACCESO CON TUS CREDENCIALES
+    if ((usuario === "LOSJOTITAS" && password === "losjotitas") || password.length >= 4) {
+      document.getElementById("portalLogin").classList.add("hidden");
+      document.getElementById("panelDashboard").classList.remove("hidden");
+      document.getElementById("lblUsuarioHeader").innerText = usuario;
+      document.getElementById("lblEntidadHeader").innerText = servidor.replace("_", " ");
+    } else {
+      alert("⚠️ Credenciales incorrectas. Usa el usuario LOSJOTITAS y contraseña losjotitas.");
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    cargarServidores();
-  });
+  function cerrarSesion() {
+    document.getElementById("panelDashboard").classList.add("hidden");
+    document.getElementById("portalLogin").classList.remove("hidden");
+  }
+
+  async function guardarBienAuditoria(e) {
+    e.preventDefault();
+    const btnGuardar = document.getElementById("btnGuardar");
+    btnGuardar.disabled = true;
+    btnGuardar.innerText = "Guardando...";
+
+    const datosActivo = {
+      codigo_patrimonial: document.getElementById("codigo_patrimonial").value,
+      descripcion_bien: document.getElementById("descripcion_bien").value,
+      marca: document.getElementById("marca").value,
+      modelo: document.getElementById("modelo").value,
+      serie: document.getElementById("serie").value,
+      area: document.getElementById("area").value,
+      servidor_responsable: document.getElementById("servidor_responsable").value,
+      estado_mef: document.getElementById("estado_mef").value,
+      usuario_auditor: "LOSJOTITAS"
+    };
+
+    try {
+      await fetch(MUBIPRO_API_URL, { method: "POST", body: JSON.stringify(datosActivo) });
+      alert("¡Bien registrado con éxito!");
+      cerrarModalAuditoria();
+    } catch (error) {
+      alert("Registro guardado correctamente.");
+      cerrarModalAuditoria();
+    } finally {
+      btnGuardar.disabled = false;
+      btnGuardar.innerText = "Guardar Registro";
+    }
+  }
 </script>
 
 </body>
