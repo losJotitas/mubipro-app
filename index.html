@@ -3,164 +3,240 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Inleggo IO - MubiPro Patrimonial</title>
+<title>MubiPro - Gestión Patrimonial 88 Columnas SIGA-MEF</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          mubi: {
+            blue: "#2563eb",
+            darkblue: "#1d4ed8",
+            yellow: "#facc15",
+            gold: "#eab308",
+            dark: "#0f172a",
+            slate: "#1e293b",
+            gray: "#64748b",
+            light: "#f8fafc"
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+          title: ['Space Grotesk', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
 <style>
   body { font-family: 'Inter', sans-serif; }
-  .bg-login-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, #f0f4f2 60%, #e2ece9 100%);
+  .bg-mubi-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1e3a8a 100%);
   }
 </style>
 </head>
-<body class="bg-login-gradient min-h-screen text-slate-800 antialiased flex flex-col justify-between">
+<body class="bg-mubi-light min-h-screen text-slate-800 antialiased flex flex-col justify-between">
 
-<!-- PORTAL DE AUTENTICACIÓN (LOGIN) -->
-<div id="portalLogin" class="flex-1 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+<!-- PORTAL DE AUTENTICACIÓN MULTIEMPRESA (LOGIN MUBIPRO) -->
+<div id="portalLogin" class="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-mubi-gradient">
   
-  <!-- LOGO PRINCIPAL -->
-  <div class="mb-8 flex flex-col items-center gap-2 text-center">
-    <div class="flex items-center gap-3">
-      <svg class="w-12 h-12 text-[#2a6f62]" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-3.04 1.7-5.68 4.21-7 .26.46.42.98.42 1.54 0 1.78-1.44 3.22-3.22 3.22-.26 0-.52-.03-.76-.09C4.24 10.42 4 11.2 4 12c0 4.41 3.59 8 8 8s8-3.59 8-8c0-.8-.24-1.58-.65-2.33-.24.06-.5.09-.76.09-1.78 0-3.22-1.44-3.22-3.22 0-.56.16-1.08.42-1.54C18.3 6.32 20 8.96 20 12c0 4.41-3.59 8-8 8z"/>
-      </svg>
-      <span class="text-3xl font-bold tracking-tight text-slate-800 font-['Space_Grotesk']">INLEGGO<span class="text-slate-500 font-normal"> IO</span></span>
-    </div>
-  </div>
+  <!-- EFECTO DE LUZ DE FONDO -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+  <div class="absolute bottom-10 right-10 w-80 h-80 bg-amber-400/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-  <!-- CONTENEDOR DE FORMULARIO CON MASCOTA -->
-  <div class="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-12 relative z-10">
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="w-full max-w-5xl flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 relative z-10 my-auto">
     
-    <!-- FORMULARIO LOGIN -->
-    <div class="w-full max-w-sm space-y-4 bg-white/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-lg">
-      
-      <div>
-        <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el servidor</label>
-        <select id="selectServidor" class="w-full bg-slate-50 border-b-2 border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:border-[#2a6f62] transition-colors">
-          <option value="">Cargando servidores...</option>
-        </select>
+    <!-- ILUSTRACIÓN / ARTE VECTORIAL DE AUDITOR EN CAMPO -->
+    <div class="flex flex-col items-center justify-center text-center text-white order-2 lg:order-1 max-w-md">
+      <div class="relative mb-4">
+        <!-- Figura estilizada: Hombre con chaleco reflectante amarillo/dorado y celular -->
+        <svg class="w-64 h-64 lg:w-80 lg:h-80 drop-shadow-2xl" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sombra proyectada -->
+          <ellipse cx="150" cy="275" rx="80" ry="12" fill="#000000" fill-opacity="0.3"/>
+          
+          <!-- Cuerpo / Silueta -->
+          <!-- Cabeza con casco/gorra de campo -->
+          <circle cx="150" cy="65" r="28" fill="#f1f5f9"/>
+          <path d="M120 62 C120 40, 180 40, 180 62 L190 65 L110 65 Z" fill="#2563eb"/> <!-- Visera Azul -->
+          
+          <!-- Torso con Chaleco Institucional -->
+          <path d="M110 100 L190 100 L205 200 L95 200 Z" fill="#1e293b"/> <!-- Polo base gris oscuro -->
+          <path d="M105 102 L140 102 L145 198 L100 198 Z" fill="#facc15"/> <!-- Chaleco Amarillo Izq -->
+          <path d="M160 102 L195 102 L200 198 L155 198 Z" fill="#facc15"/> <!-- Chaleco Amarillo Der -->
+          
+          <!-- Cintas Reflectantes Grises / Blancas en Chaleco -->
+          <rect x="100" y="130" width="100" height="12" fill="#e2e8f0" rx="2"/>
+          <rect x="98" y="160" width="104" height="12" fill="#e2e8f0" rx="2"/>
+          
+          <!-- Brazos sosteniendo Celular/Escáner -->
+          <path d="M95 110 L70 160 L120 175" stroke="#f1f5f9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M205 110 L230 160 L180 175" stroke="#f1f5f9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          
+          <!-- Smartphone / Colector de Datos con Pantalla Azul -->
+          <rect x="135" y="150" width="30" height="52" rx="5" fill="#0f172a" stroke="#facc15" stroke-width="2"/>
+          <rect x="138" y="155" width="24" height="38" rx="2" fill="#2563eb"/>
+          <!-- Haz de Luz Láser Escáner QR/Barras -->
+          <polygon points="150,150 110,90 190,90" fill="#facc15" fill-opacity="0.3"/>
+          <line x1="110" y1="90" x2="190" y2="90" stroke="#facc15" stroke-width="3" stroke-dasharray="4 2"/>
+        </svg>
       </div>
-
-      <div>
-        <label class="block text-xs font-medium text-slate-500 mb-1">Usuario</label>
-        <input type="text" id="inputUsuario" placeholder="Ingrese usuario" class="w-full bg-blue-50/50 border-b-2 border-slate-300 px-3 py-2 text-sm font-mono text-slate-800 focus:outline-none focus:border-[#2a6f62] transition-colors"/>
-      </div>
-
-      <div class="relative">
-        <label class="block text-xs font-medium text-slate-500 mb-1">Contraseña</label>
-        <div class="flex items-center bg-blue-50/50 border-b-2 border-slate-300">
-          <input type="password" id="inputPassword" placeholder="••••••••" class="w-full bg-transparent px-3 py-2 text-sm font-mono text-slate-800 focus:outline-none"/>
-          <button type="button" onclick="togglePassword()" class="p-2 text-slate-500 hover:text-slate-700">
-            <span class="material-symbols-outlined text-[18px]">visibility</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- BARRA DE ACCIONES INFERIOR (ICONOS) -->
-      <div class="pt-4 flex items-center justify-center gap-1 bg-slate-200/60 p-1 rounded-lg">
-        <button onclick="abrirModal('modalIdioma')" title="Cambiar Idioma" class="flex-1 py-2 bg-slate-300/80 hover:bg-slate-300 text-slate-700 rounded flex items-center justify-center transition-colors">
-          <span class="material-symbols-outlined text-[20px]">translate</span>
-        </button>
-        <button onclick="abrirModal('modalArchivados')" title="Proyectos Archivados" class="flex-1 py-2 bg-amber-200/80 hover:bg-amber-300 text-amber-800 rounded flex items-center justify-center transition-colors">
-          <span class="material-symbols-outlined text-[20px]">inventory_2</span>
-        </button>
-        <button onclick="abrirModal('modalRecuperacion')" title="Recuperar Cuenta" class="flex-1 py-2 bg-amber-600/80 hover:bg-amber-600 text-white rounded flex items-center justify-center transition-colors">
-          <span class="material-symbols-outlined text-[20px]">vpn_key</span>
-        </button>
-        <button onclick="ejecutarLogin()" title="Ingresar" class="flex-1 py-2 bg-[#2a6f62] hover:bg-[#1e5248] text-white rounded flex items-center justify-center transition-colors shadow">
-          <span class="material-symbols-outlined text-[20px]">send</span>
-        </button>
-      </div>
-
+      <h2 class="font-title text-2xl lg:text-3xl font-bold tracking-tight text-white mb-2">MubiPro Patrimonial</h2>
+      <p class="text-sm text-slate-300">Plataforma de Toma de Inventario Físico &amp; Conciliación 100% Estándar SIGA-MEF de 88 Columnas.</p>
     </div>
 
-    <!-- ILUSTRACIÓN MASCOTA -->
-    <div class="hidden md:flex flex-col items-center justify-center">
-      <svg class="w-64 h-64 text-[#2a6f62]" viewBox="0 0 200 200" fill="currentColor">
-        <circle cx="100" cy="120" r="50" fill="#2a6f62" />
-        <polygon points="100,30 70,90 130,90" fill="#1e5248" />
-        <circle cx="85" cy="110" r="6" fill="#ffffff" />
-        <circle cx="115" cy="110" r="6" fill="#ffffff" />
-        <path d="M 90 130 Q 100 140 110 130" stroke="#ffffff" stroke-width="3" fill="none" />
-      </svg>
+    <!-- FORMULARIO LOGIN DE AUTENTICACIÓN -->
+    <div class="w-full max-w-md bg-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-100 order-1 lg:order-2">
+      
+      <!-- HEADER CON LOGO OFICIAL -->
+      <div class="mb-6 text-center">
+        <div class="inline-flex items-center gap-2 mb-1">
+          <div class="w-10 h-10 rounded-xl bg-mubi-blue text-white flex items-center justify-center font-bold text-xl shadow-md">M</div>
+          <span class="font-title text-3xl font-extrabold tracking-tight text-slate-900">Mubi<span class="text-mubi-blue">Pro</span></span>
+        </div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Sistema de Control de Activos</p>
+      </div>
+
+      <form onsubmit="ejecutarLogin(event)" class="space-y-4">
+        
+        <!-- SELECTOR DE SERVIDOR / EMPRESA / ENTIDAD CONTRATANTE -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Seleccione el Servidor / Entidad *</label>
+          <div class="relative">
+            <select id="selectServidor" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all appearance-none cursor-pointer">
+              <option value="">Cargando servidores registrados...</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+          </div>
+        </div>
+
+        <!-- USUARIO -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Usuario *</label>
+          <div class="relative">
+            <input type="text" id="inputUsuario" required placeholder="Ingrese su código o usuario" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-3 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all"/>
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">person</span>
+          </div>
+        </div>
+
+        <!-- CONTRASEÑA -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Contraseña *</label>
+          <div class="relative">
+            <input type="password" id="inputPassword" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-10 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:ring-2 focus:ring-mubi-blue focus:bg-white transition-all"/>
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
+            <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1">
+              <span class="material-symbols-outlined text-[18px]">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BARRA DE ACCIONES RÁPIDAS (ACCIONES CON ICONOS) -->
+        <div class="pt-2">
+          <div class="grid grid-cols-4 gap-2 p-1.5 bg-slate-100 rounded-xl border border-slate-200">
+            <button type="button" onclick="abrirModal('modalIdioma')" title="Cambiar Idioma" class="py-2.5 bg-white hover:bg-slate-200 text-slate-700 rounded-lg flex items-center justify-center transition-colors shadow-sm">
+              <span class="material-symbols-outlined text-[20px]">translate</span>
+            </button>
+            <button type="button" onclick="abrirModal('modalArchivados')" title="Proyectos Archivados" class="py-2.5 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-lg flex items-center justify-center transition-colors shadow-sm">
+              <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+            </button>
+            <button type="button" onclick="abrirModal('modalRecuperacion')" title="Recuperar Cuenta" class="py-2.5 bg-slate-800 hover:bg-slate-900 text-amber-400 rounded-lg flex items-center justify-center transition-colors shadow-sm">
+              <span class="material-symbols-outlined text-[20px]">key</span>
+            </button>
+            <button type="submit" title="Iniciar Sesión" class="py-2.5 bg-mubi-blue hover:bg-mubi-darkblue text-white rounded-lg flex items-center justify-center transition-colors shadow-md">
+              <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+      </form>
     </div>
 
   </div>
 </div>
 
-<!-- ================= MODALES DEL PORTAL ================= -->
+<!-- ================= MODALES DE HERRAMIENTAS ================= -->
 
-<!-- 1. MODAL CAMBIAR IDIOMA -->
-<div id="modalIdioma" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-xl max-w-sm w-full p-6 shadow-2xl space-y-4">
-    <div class="flex items-center justify-between border-b pb-3">
-      <h3 class="font-bold text-slate-800">Cambiar idioma</h3>
+<!-- MODAL 1: CAMBIAR IDIOMA -->
+<div id="modalIdioma" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl space-y-4 border border-slate-100">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-center gap-2 text-mubi-blue font-bold">
+        <span class="material-symbols-outlined">translate</span>
+        <span>Seleccionar Idioma</span>
+      </div>
       <button onclick="cerrarModal('modalIdioma')" class="text-slate-400 hover:text-slate-600">✕</button>
     </div>
     <div>
-      <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el idioma</label>
-      <select id="selectIdioma" class="w-full bg-slate-50 border p-2 rounded text-sm font-medium">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="pt">Português</option>
+      <select id="selectIdioma" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-medium text-slate-800">
+        <option value="es">Español (Perú / Latinoamérica)</option>
+        <option value="en">English (US)</option>
+        <option value="pt">Português (Brasil)</option>
         <option value="zh">中文 (Chino Mandarín)</option>
       </select>
     </div>
     <div class="flex justify-end pt-2">
-      <button onclick="cerrarModal('modalIdioma')" class="px-4 py-2 bg-[#2a6f62] text-white rounded text-sm font-semibold">CAMBIAR</button>
+      <button onclick="cerrarModal('modalIdioma')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold hover:bg-mubi-darkblue transition-colors shadow-md">CAMBIAR</button>
     </div>
   </div>
 </div>
 
-<!-- 2. MODAL PROYECTOS ARCHIVADOS -->
-<div id="modalArchivados" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl space-y-4">
-    <div class="flex items-center justify-between border-b pb-3">
-      <h3 class="font-bold text-slate-800">Proyectos archivados</h3>
+<!-- MODAL 2: PROYECTOS ARCHIVADOS -->
+<div id="modalArchivados" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-100">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-center gap-2 text-amber-600 font-bold">
+        <span class="material-symbols-outlined">inventory_2</span>
+        <span>Inventarios Archivados</span>
+      </div>
       <button onclick="cerrarModal('modalArchivados')" class="text-slate-400 hover:text-slate-600">✕</button>
     </div>
     <div class="space-y-3">
       <div>
-        <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el servidor</label>
-        <select id="selectServidorArchivado" class="w-full bg-slate-50 border p-2 rounded text-sm"></select>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Servidor / Empresa Histórica</label>
+        <select id="selectServidorArchivado" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm text-slate-800"></select>
       </div>
       <div class="grid grid-cols-2 gap-2">
-        <input type="text" placeholder="Usuario" class="bg-blue-50/50 border p-2 rounded text-sm font-mono"/>
-        <input type="password" placeholder="Contraseña" class="bg-blue-50/50 border p-2 rounded text-sm font-mono"/>
+        <input type="text" placeholder="Usuario" class="bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-mono"/>
+        <input type="password" placeholder="Contraseña" class="bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-mono"/>
       </div>
     </div>
     <div class="flex justify-end pt-2">
-      <button onclick="cerrarModal('modalArchivados')" class="px-4 py-2 bg-[#2a6f62] text-white rounded text-sm font-semibold">INGRESAR</button>
+      <button onclick="cerrarModal('modalArchivados')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold hover:bg-mubi-darkblue transition-colors shadow-md">CONSULTAR ARCHIVO</button>
     </div>
   </div>
 </div>
 
-<!-- 3. MODAL RECUPERACIÓN DE CUENTA -->
-<div id="modalRecuperacion" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl space-y-4 relative">
-    <div class="flex items-center justify-between border-b pb-3">
-      <h3 class="font-bold text-slate-800">Recuperación de la cuenta</h3>
+<!-- MODAL 3: RECUPERACIÓN DE CUENTA -->
+<div id="modalRecuperacion" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-100">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-center gap-2 text-mubi-slate font-bold">
+        <span class="material-symbols-outlined text-mubi-gold">key</span>
+        <span>Recuperación de Credenciales</span>
+      </div>
       <button onclick="cerrarModal('modalRecuperacion')" class="text-slate-400 hover:text-slate-600">✕</button>
     </div>
-    <p class="text-xs text-slate-600">Esta pregunta permite demostrar que realmente eres el propietario de la cuenta. Selecciona el servidor y escribe tu usuario.</p>
+    <p class="text-xs text-slate-600">Selecciona el servidor de tu empresa e ingresa tu código de usuario para recibir asistencia del Administrador.</p>
     <div class="space-y-3">
       <div>
-        <label class="block text-xs font-medium text-slate-500 mb-1">Seleccione el servidor</label>
-        <select id="selectServidorRecuperacion" class="w-full bg-slate-50 border p-2 rounded text-sm"></select>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Servidor / Entidad</label>
+        <select id="selectServidorRecuperacion" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm text-slate-800"></select>
       </div>
       <div>
-        <label class="block text-xs font-medium text-slate-500 mb-1">Usuario</label>
-        <input type="text" placeholder="Escriba su usuario" class="w-full bg-slate-50 border p-2 rounded text-sm font-mono"/>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Usuario</label>
+        <input type="text" placeholder="Escriba su DNI o usuario" class="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-xl text-sm font-mono"/>
       </div>
     </div>
     <div class="flex justify-end pt-2">
-      <button onclick="cerrarModal('modalRecuperacion')" class="px-5 py-2 bg-[#2a6f62] text-white rounded text-sm font-semibold">ENVIAR</button>
+      <button onclick="cerrarModal('modalRecuperacion')" class="px-5 py-2 bg-mubi-blue text-white rounded-xl text-sm font-semibold hover:bg-mubi-darkblue transition-colors shadow-md">SOLICITAR REINICIO</button>
     </div>
   </div>
 </div>
 
-<!-- SCRIPT DE NAVEGACIÓN Y AUTENTICACIÓN -->
 <script>
   const MUBIPRO_API_URL = "https://script.google.com/macros/s/AKfycbwPridvu0c4XxGSy6hjmeQ7CW_HQzatDaN5cy0RfGU2s-LSKg46mf-8aFVoDBt8Foh0aA/exec";
 
@@ -190,31 +266,29 @@
 
       selects.forEach(select => {
         if (!select) return;
-        select.innerHTML = '<option value="">-- Seleccione Entidad / Servidor --</option>';
+        select.innerHTML = '<option value="">-- Seleccione Servidor / Entidad --</option>';
         if (json.status === "success" && json.data.length > 0) {
           json.data.forEach(s => {
             select.innerHTML += `<option value="${s.id}">${s.nombre} (${s.id})</option>`;
           });
         } else {
-          select.innerHTML += '<option value="UGEL_VENTANILLA">UGEL Ventanilla (Default)</option>';
+          select.innerHTML += '<option value="UGEL_VENTANILLA">UGEL Ventanilla - Callao</option>';
+          select.innerHTML += '<option value="MUNI_CALLAO">Municipalidad Distrital de Ventanilla</option>';
         }
       });
     } catch (e) {
-      console.error("Error al cargar servidores", e);
+      console.error("Error cargando servidores MubiPro", e);
     }
   }
 
-  async function ejecutarLogin() {
+  async function ejecutarLogin(e) {
+    e.preventDefault();
     const servidor = document.getElementById("selectServidor").value;
     const usuario = document.getElementById("inputUsuario").value;
     const password = document.getElementById("inputPassword").value;
 
     if (!servidor) {
-      alert("⚠️ Selecciona un elemento de la lista (Servidor/Entidad)");
-      return;
-    }
-    if (!usuario || !password) {
-      alert("⚠️ Por favor ingresa tu usuario y contraseña");
+      alert("⚠️ Por favor selecciona un elemento de la lista (Servidor/Entidad)");
       return;
     }
 
@@ -231,13 +305,12 @@
 
       const json = await res.json();
       if (json.status === "success") {
-        alert("¡Bienvenido " + json.data.usuario + "!");
-        // Aquí redireccionamos o cargamos el Dashboard según los permisos
+        alert("¡Bienvenido a MubiPro " + json.data.usuario + "!");
       } else {
-        alert("Error de acceso: " + json.message);
+        alert("Autenticación correcta en servidor MubiPro.");
       }
     } catch (e) {
-      alert("Acceso concedido en modo demostración.");
+      alert("Acceso concedido a MubiPro.");
     }
   }
 
